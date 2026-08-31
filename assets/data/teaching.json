@@ -1,13 +1,13 @@
 {
-  "statement": "My teaching connects engineering fundamentals with open-ended design. Students learn to move between mathematical models, physical prototypes, and evidence from human-centered experiments.",
-  "courses": [
-    {"code": "ROB 501", "title": "Rehabilitation Robotics", "term": "Graduate · Spring", "description": "Principles of assistive robotics, human movement, control, sensing, and clinical translation."},
-    {"code": "ME 326", "title": "Robot Mechanisms and Design", "term": "Undergraduate · Fall", "description": "Kinematics, actuation, compliant mechanisms, prototyping, and design verification."},
-    {"code": "ENGR 490", "title": "Research Project Seminar", "term": "Undergraduate / Graduate", "description": "Research practice, scholarly communication, reproducibility, and responsible innovation."}
+  "statement": "My teaching and mentoring connect mechanical design, intelligent control, and clinical needs. I encourage students to turn rehabilitation challenges into testable engineering questions and working robotic prototypes.",
+  "activities": [
+    {"code": "10 students", "title": "Undergraduate Thesis Supervision", "term": "Zhengzhou University", "description": "Supervised ten undergraduate students in completing graduation theses and design projects; four were recognized as university-level outstanding theses."},
+    {"code": "Student team", "title": "Reconfigurable Upper-Limb Rehabilitation Robot", "term": "Design & prototyping", "description": "Guided an undergraduate team in developing a reconfigurable, multi-configuration upper-limb rehabilitation robot."},
+    {"code": "Student team", "title": "Spinal Assist Exoskeleton", "term": "Design & prototyping", "description": "Guided a student team in developing a spinal assist exoskeleton with a focus on variable stiffness and wearable compatibility."}
   ],
-  "resources": [
-    {"title": "Course materials", "description": "Lecture notes, assignments, and reading lists can be linked here.", "url": ""},
-    {"title": "Student projects", "description": "Selected course and capstone projects can be showcased here.", "url": ""},
-    {"title": "Prospective researchers", "description": "Add application guidance and expected background for students interested in the group.", "url": "../contact/"}
+  "honors": [
+    {"title": "RoboCup China Open", "description": "National Second Prize · RoboCup Division", "url": ""},
+    {"title": "iCAN Innovation and Entrepreneurship Competition", "description": "National Second Prize", "url": ""},
+    {"title": "Zhengzhou University Student Entrepreneurship Competition", "description": "Gold Award · 13th edition", "url": ""}
   ]
 }

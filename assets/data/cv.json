@@ -1,19 +1,30 @@
 {
   "appointments": [
-    {"period": "20XX–Present", "title": "Associate Professor", "place": "Department / School, University Name"},
-    {"period": "20XX–20XX", "title": "Assistant Professor", "place": "Department / School, University Name"}
+    {"period": "2024–Present", "title": "Lecturer in Mechatronic Engineering", "place": "School of Mechanical and Power Engineering, Zhengzhou University"}
   ],
   "education": [
-    {"period": "20XX", "title": "PhD in Mechanical Engineering", "place": "University Name"},
-    {"period": "20XX", "title": "MSc in Robotics", "place": "University Name"},
-    {"period": "20XX", "title": "BEng in Mechanical Engineering", "place": "University Name"}
+    {"period": "2019–2024", "title": "PhD, General Mechanics and Fundamental Mechanics", "place": "Peking University"},
+    {"period": "2015–2019", "title": "BEng, Mechanical Design, Manufacturing and Automation", "place": "Harbin Engineering University"}
+  ],
+  "funding": [
+    {"period": "2026–2028", "title": "Young Scientists Fund (C), No. 52505044 · Principal Investigator", "place": "National Natural Science Foundation of China"},
+    {"period": "2025–2027", "title": "Postdoctoral Research Project · Principal Investigator", "place": "Henan Province"},
+    {"period": "2026–2027", "title": "Young Talent Support Program · Principal Investigator", "place": "Henan Province"},
+    {"period": "2025–2026", "title": "Open Research Project · Principal Investigator", "place": "Shanghai Key Laboratory of Wearable Robotics and Human–Robot Interaction"}
+  ],
+  "outputs": [
+    {"period": "Papers", "title": "More than 10 SCI/EI/core-indexed publications", "place": "Six first-author papers and one corresponding-author paper"},
+    {"period": "Patents", "title": "14 national invention patent applications", "place": "Four granted patents"},
+    {"period": "Software", "title": "Two software copyrights", "place": "One expert consensus contribution and one group standard"}
   ],
   "honors": [
-    {"period": "20XX", "title": "Example Research Award", "place": "Awarding Organization"},
-    {"period": "20XX", "title": "Example Teaching Award", "place": "University Name"}
+    {"period": "Second Prize", "title": "Science and Technology Progress Award", "place": "China General Chamber of Commerce · Contributor 5 of 12"},
+    {"period": "4 awards", "title": "Outstanding Undergraduate Graduation Theses", "place": "Zhengzhou University · Faculty supervisor"},
+    {"period": "National", "title": "Student Competition Second Prizes", "place": "RoboCup China Open and iCAN Innovation and Entrepreneurship Competition"}
   ],
   "service": [
-    {"period": "20XX–Present", "title": "Associate Editor / Editorial Board Member", "place": "Journal Name"},
-    {"period": "20XX–Present", "title": "Program Committee Member", "place": "Conference Name"}
+    {"period": "Committee", "title": "Member, Robot System Simulation Professional Committee", "place": "China Simulation Federation"},
+    {"period": "Committee", "title": "Member, Medical–Engineering Integration and Minimally Invasive Orthopedics Committee", "place": "Henan Physical Medicine Society"},
+    {"period": "Reviewer", "title": "Journal Reviewer", "place": "IEEE/ASME Transactions on Mechatronics; IEEE TNSRE; IEEE RA-L; Nonlinear Dynamics"}
   ]
 }

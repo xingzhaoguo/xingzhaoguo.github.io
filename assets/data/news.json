@@ -1,8 +1,8 @@
 [
-  {"date": "2026-08-15", "title": "Our new paper on adaptive robotic assistance has been accepted for publication.", "url": ""},
-  {"date": "2026-06-04", "title": "The lab welcomes a new graduate researcher joining our rehabilitation robotics project.", "url": ""},
-  {"date": "2026-04-22", "title": "We presented recent work on variable-stiffness mechanisms at an international robotics conference.", "url": ""},
-  {"date": "2026-02-10", "title": "A new collaborative project on neural interfaces and motor recovery has received funding.", "url": ""},
-  {"date": "2025-12-18", "title": "Congratulations to our student team on completing the first wearable robot prototype.", "url": ""},
-  {"date": "2025-09-03", "title": "Our laboratory website has launched with updates on research, teaching, and opportunities.", "url": ""}
+  {"date": "2026-01-01", "display_date": "2026", "title": "Awarded the National Natural Science Foundation of China Young Scientists Fund (C), project No. 52505044.", "url": ""},
+  {"date": "2026-01-01", "display_date": "2026", "title": "A paper on a multi-DOF serial–parallel robot for dynamic cervical traction was accepted by IEEE CASE 2026.", "url": ""},
+  {"date": "2025-11-01", "display_date": "2025", "title": "Our work on robot-assisted trunk control assessment after spinal cord injury was published in IEEE Transactions on Biomedical Engineering.", "url": ""},
+  {"date": "2025-06-01", "display_date": "2025", "title": "Student rehabilitation robot teams received national second prizes in the RoboCup China Open and iCAN Innovation and Entrepreneurship Competition.", "url": ""},
+  {"date": "2025-05-01", "display_date": "2025", "title": "The trunk rehabilitation robot has supported clinical studies involving more than 50 patients and was featured on CCTV-1 Evening News.", "url": ""},
+  {"date": "2025-04-01", "display_date": "2025", "title": "Four supervised undergraduate theses were recognized as Outstanding Undergraduate Graduation Theses by Zhengzhou University.", "url": ""}
 ]

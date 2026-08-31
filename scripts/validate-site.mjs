@@ -50,7 +50,7 @@ function resolveLocalReference(htmlFile, reference) {
   '.nojekyll', 'index.html', '404.html', 'assets/css/main.css', 'assets/js/site.js',
   'research/index.html', 'publications/index.html', 'projects/index.html',
   'teaching/index.html', 'team/index.html', 'news/index.html', 'cv/index.html',
-  'contact/index.html', 'assets/images/og-academic-homepage.png'
+  'contact/index.html', 'assets/images/og-xingzhao-guo.png'
 ].forEach(requirePath);
 
 const profile = readJson('assets/data/profile.json');
@@ -66,7 +66,7 @@ if (profile) requirePath(profile.photo);
 if (projects) {
   for (const project of projects) {
     requirePath(project.image);
-    requirePath(`projects/${project.id}/index.html`);
+    if (project.has_detail !== false) requirePath(`projects/${project.id}/index.html`);
   }
 }
 if (publications) {

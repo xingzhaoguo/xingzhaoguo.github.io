@@ -1,23 +1,24 @@
 {
-  "name": "Your Name",
-  "title": "Associate Professor",
-  "department": "Department / School",
-  "institution": "University Name",
-  "location": "City, Country",
-  "tagline": "Designing human-centered robotic systems that make rehabilitation more adaptive, intuitive, and effective.",
-  "biography": "I am a faculty member working at the intersection of robotics, biomechanics, and human movement science. My group develops wearable and rehabilitation technologies that combine principled mechanical design with intelligent, human-centered control. This placeholder biography is intentionally concise and can be replaced with your own academic background, current appointments, and long-term research vision.",
-  "email": "your.name@university.edu",
-  "photo": "assets/images/profile/profile-placeholder.svg",
+  "name": "Xingzhao Guo",
+  "name_zh": "郭兴召",
+  "title": "Lecturer",
+  "department": "School of Mechanical and Power Engineering",
+  "institution": "Zhengzhou University",
+  "location": "Zhengzhou, Henan, China",
+  "tagline": "Developing intelligent rehabilitation robots through compliant mechanism design, adaptive control, and biomechanical analysis.",
+  "biography": "Xingzhao Guo is a Lecturer in the School of Mechanical and Power Engineering at Zhengzhou University. He received his PhD in General Mechanics and Fundamental Mechanics from Peking University. His research focuses on rehabilitation robotics, intelligent robot control, biomechanical analysis, and variable-stiffness assistive systems. He has published more than ten SCI/EI/core-indexed papers, filed 14 national invention patent applications, and leads national and provincial research projects. His trunk rehabilitation robot has been evaluated in clinical studies involving more than 50 patients and was featured on CCTV-1 Evening News.",
+  "email": "xingzhaoguo@zzu.edu.cn",
+  "photo": "assets/images/profile/xingzhao-guo.webp",
   "links": {
-    "google_scholar": "https://scholar.google.com/",
-    "orcid": "https://orcid.org/0000-0000-0000-0000",
+    "google_scholar": "",
+    "orcid": "",
     "github": "https://github.com/xingzhaoguo"
   },
   "research_interests": [
     "Rehabilitation Robotics",
-    "Human-Robot Interaction",
-    "Biomechanics",
-    "Variable Stiffness Mechanisms",
-    "Brain-Computer Interface"
+    "Intelligent Robot Control",
+    "Biomechanical Analysis",
+    "Variable-Stiffness Mechanisms",
+    "Clinical Evaluation"
   ]
 }

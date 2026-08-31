@@ -83,7 +83,7 @@
 ```json
 {
   "title": "Paper title",
-  "authors": "Author A, Your Name, and Author B",
+  "authors": "Author A, Xingzhao Guo, and Author B",
   "venue": "Journal or Conference",
   "year": 2026,
   "type": "Journal Article",
@@ -104,9 +104,9 @@
 新增项目时：
 
 1. 在 `projects.json` 中增加一条记录，并设置唯一的 `id`。
-2. 复制任一现有项目详情目录，例如 `projects/adaptive-rehabilitation-robot/`。
+2. 复制任一现有项目详情目录，例如 `projects/trunk-rehabilitation-robot/`。
 3. 将新目录改为 `projects/<id>/`，并把其中 `<body>` 的 `data-project-id` 改为相同的 `id`。
-4. 修改详情页的 `<title>`、description 和 Open Graph 信息。
+4. 修改详情页的 `<title>`、description 和 Open Graph 信息，并设置 `has_detail: true`。不需要详情页的项目可设置 `has_detail: false`。
 
 页面正文会自动读取 `overview`、`challenge`、`approach` 和 `outcomes`。`featured: true` 的前三个项目会显示在首页。
 
@@ -186,4 +186,3 @@ https://xingzhaoguo.github.io/
 - 更新页面的 title、description 和社交分享文案
 - 运行 `node scripts/validate-site.mjs`
 - 手机和电脑浏览器各检查一次导航、文字长度和图片裁切
-

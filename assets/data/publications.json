@@ -1,52 +1,62 @@
 [
   {
-    "title": "Human-in-the-Loop Adaptation for Personalized Robotic Rehabilitation",
-    "authors": "Your Name, A. Collaborator, and B. Researcher",
-    "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+    "title": "Development of a Multi-DOF Robot Based on Serial–Parallel Mechanism for Dynamic Cervical Traction",
+    "authors": "Zheng Tao et al., and Xingzhao Guo (corresponding author)",
+    "venue": "IEEE International Conference on Automation Science and Engineering (CASE)",
     "year": 2026,
-    "type": "Journal Article",
+    "type": "Conference Paper · Accepted",
     "selected": true,
     "pdf": "",
-    "doi": "https://doi.org/10.0000/placeholder.2026.001"
+    "doi": ""
   },
   {
-    "title": "A Variable-Stiffness Mechanism for Safe Physical Human–Robot Interaction",
-    "authors": "C. Student, Your Name, and D. Collaborator",
-    "venue": "IEEE Robotics and Automation Letters",
+    "title": "Evaluating Trunk Control Ability in Patients With Spinal Cord Injury via a Robotic Brace",
+    "authors": "Xingzhao Guo, Zhihao Zhou, Jiehong Shi, Rongli Wang, Ninghua Wang, and Qining Wang",
+    "venue": "IEEE Transactions on Biomedical Engineering, 72(11), 3244–3255",
     "year": 2025,
     "type": "Journal Article",
     "selected": true,
     "pdf": "",
-    "doi": "https://doi.org/10.0000/placeholder.2025.002"
+    "doi": ""
   },
   {
-    "title": "Biomechanical Indicators of Motor Recovery During Robot-Assisted Training",
-    "authors": "Your Name, E. Scientist, and F. Clinician",
-    "venue": "Journal of NeuroEngineering and Rehabilitation",
+    "title": "Novel Patterns in Discrete Ikeda Map: Quint Points and Complex Non-quantum Chirality",
+    "authors": "Zeyi Liu, Xingzhao Guo, and Xiaobo Rao",
+    "venue": "Chaos, 35(1)",
     "year": 2025,
     "type": "Journal Article",
-    "selected": true,
-    "pdf": "",
-    "doi": "https://doi.org/10.0000/placeholder.2025.003"
-  },
-  {
-    "title": "Decoding Movement Intent from Multimodal Neural and Muscular Signals",
-    "authors": "G. Student, H. Researcher, and Your Name",
-    "venue": "International Conference on Rehabilitation Robotics",
-    "year": 2024,
-    "type": "Conference Paper",
-    "selected": true,
-    "pdf": "",
-    "doi": "https://doi.org/10.0000/placeholder.2024.004"
-  },
-  {
-    "title": "Transparent Assistance Strategies for Wearable Rehabilitation Robots",
-    "authors": "Your Name and I. Collaborator",
-    "venue": "Frontiers in Robotics and AI",
-    "year": 2023,
-    "type": "Review Article",
     "selected": false,
     "pdf": "",
-    "doi": "https://doi.org/10.0000/placeholder.2023.005"
+    "doi": ""
+  },
+  {
+    "title": "Multi-objective Optimization and Performance Analysis of 3-RPR Parallel Mechanism in Robotic Brace",
+    "authors": "Xingzhao Guo, Zhihao Zhou, and Qining Wang",
+    "venue": "Mechatronics, 95",
+    "year": 2023,
+    "type": "Journal Article",
+    "selected": true,
+    "pdf": "",
+    "doi": ""
+  },
+  {
+    "title": "Serial–Parallel Mechanism and Controller Design of a Robotic Brace for Dynamic Trunk Support",
+    "authors": "Xingzhao Guo, Zhihao Zhou, Yuan Gao, Jingeng Mai, and Qining Wang",
+    "venue": "IEEE/ASME Transactions on Mechatronics, 27(6), 4518–4529",
+    "year": 2022,
+    "type": "Journal Article",
+    "selected": true,
+    "pdf": "",
+    "doi": ""
+  },
+  {
+    "title": "Admittance Control of Wearable Robotic Brace for Dynamic Trunk Support",
+    "authors": "Xingzhao Guo, Zhihao Zhou, and Qining Wang",
+    "venue": "IEEE RAS/EMBS International Conference on Biomedical Robotics and Biomechatronics (BioRob)",
+    "year": 2022,
+    "type": "Conference Paper",
+    "selected": false,
+    "pdf": "",
+    "doi": ""
   }
 ]

@@ -2,36 +2,36 @@
   {
     "number": "01",
     "title": "Rehabilitation Robotics",
-    "summary": "Robotic systems that support motor relearning through safe, measurable, and personalized physical interaction.",
-    "questions": "How can assistance adapt to an individual's recovery state without reducing active participation?",
-    "methods": ["Human-in-the-loop control", "Wearable sensing", "Clinical evaluation"]
+    "summary": "Wearable and stationary robotic systems for trunk, spine, upper-limb, and hand rehabilitation.",
+    "questions": "How can rehabilitation robots deliver effective physical support while preserving active participation and natural movement?",
+    "methods": ["Robotic brace design", "Wearable robotics", "Human-subject evaluation"]
   },
   {
     "number": "02",
-    "title": "Human-Robot Interaction",
-    "summary": "Intuitive interaction strategies that make assistive robots transparent, predictable, and responsive to human intent.",
-    "questions": "Which cues best communicate robot behavior and build trust during close physical collaboration?",
-    "methods": ["Shared control", "Intent estimation", "User studies"]
+    "title": "Intelligent Robot Control",
+    "summary": "Adaptive and compliant control strategies that coordinate robot assistance with human movement and rehabilitation needs.",
+    "questions": "How can a robot remain responsive and stable while adapting to a patient's changing capabilities?",
+    "methods": ["Admittance control", "Dynamic compliant control", "Human-in-the-loop control"]
   },
   {
     "number": "03",
-    "title": "Biomechanics",
-    "summary": "Quantitative analysis of human movement to connect robotic assistance with meaningful functional outcomes.",
-    "questions": "Which biomechanical markers reveal compensation, recovery, and efficient movement?",
-    "methods": ["Motion analysis", "Musculoskeletal modeling", "Signal processing"]
+    "title": "Biomechanical Analysis",
+    "summary": "Robot-assisted assessment and quantitative analysis of trunk control, movement function, and human–robot coordination.",
+    "questions": "Which biomechanical measures can characterize motor impairment and rehabilitation progress?",
+    "methods": ["Trunk control assessment", "Motion analysis", "Clinical data analysis"]
   },
   {
     "number": "04",
-    "title": "Variable Stiffness Mechanisms",
-    "summary": "Mechanisms and control methods that tune physical compliance for both performance and intrinsic safety.",
-    "questions": "How can compact mechanisms provide a useful stiffness range without adding excessive mass?",
-    "methods": ["Mechanism design", "Prototyping", "Experimental validation"]
+    "title": "Variable-Stiffness Mechanisms",
+    "summary": "High-compatibility mechanisms and control methods that tune stiffness for safe, efficient, and comfortable assistance.",
+    "questions": "How can variable stiffness improve compatibility and dynamic compliance in wearable rehabilitation robots?",
+    "methods": ["Serial–parallel mechanisms", "Multi-objective optimization", "Prototype validation"]
   },
   {
     "number": "05",
-    "title": "Brain-Computer Interface",
-    "summary": "Neural and muscular interfaces that translate movement intent into robust commands for assistive devices.",
-    "questions": "How can multimodal signals remain reliable across users, sessions, and changing physical conditions?",
-    "methods": ["EEG / EMG", "Representation learning", "Sensor fusion"]
+    "title": "Clinical Translation",
+    "summary": "Translation of rehabilitation robotics from engineering prototypes to patient studies and clinically meaningful assessment.",
+    "questions": "How can robotic technologies be evaluated safely and meaningfully with patients in real rehabilitation settings?",
+    "methods": ["Clinical collaboration", "Patient studies", "Outcome evaluation"]
   }
 ]

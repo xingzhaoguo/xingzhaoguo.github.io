@@ -41,7 +41,7 @@
       <div class="nav-shell">
         <a class="site-mark" href="${pathFor('')}" aria-label="Academic homepage">
           <span class="site-mark-monogram" aria-hidden="true">YN</span>
-          <span class="site-mark-text">Academic Homepage</span>
+          <span class="site-mark-text">Xingzhao Guo</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
           <span class="sr-only">Toggle navigation</span>
@@ -63,42 +63,50 @@
     const footer = document.querySelector('[data-site-footer]');
     if (!footer) return;
     const year = new Date().getFullYear();
+    const academicLinks = [
+      `<a href="mailto:${profile.email}">Email</a>`,
+      profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}>GitHub</a>` : '',
+      profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
+      `<a href="${pathFor('team/')}">Team</a>`,
+      `<a href="${pathFor('cv/')}">CV</a>`
+    ].filter(Boolean).join('');
     footer.innerHTML = `
       <div class="footer-shell">
         <div>
           <p class="footer-name">${profile.name}</p>
           <p>${profile.title} · ${profile.institution}</p>
         </div>
-        <div class="footer-links">
-          <a href="mailto:${profile.email}">Email</a>
-          <a href="${profile.links.github}" ${externalAttrs}>GitHub</a>
-          <a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>
-          <a href="${pathFor('team/')}">Team</a>
-          <a href="${pathFor('cv/')}">CV</a>
-        </div>
+        <div class="footer-links">${academicLinks}</div>
         <p class="copyright">© ${year} ${profile.name}. Built for GitHub Pages.</p>
       </div>`;
   }
 
   function profileLinks(profile) {
-    return `
-      <a href="mailto:${profile.email}">Email</a>
-      <a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>
-      <a href="${profile.links.orcid}" ${externalAttrs}>ORCID</a>
-      <a href="${profile.links.github}" ${externalAttrs}>GitHub</a>`;
+    return [
+      `<a href="mailto:${profile.email}">Email</a>`,
+      profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
+      profile.links.orcid ? `<a href="${profile.links.orcid}" ${externalAttrs}>ORCID</a>` : '',
+      profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}>GitHub</a>` : ''
+    ].filter(Boolean).join('');
   }
 
   function projectCard(project) {
+    const projectUrl = project.has_detail === false ? '' : pathFor(`projects/${project.id}/`);
+    const image = projectUrl
+      ? `<a class="project-image-link" href="${projectUrl}" tabindex="-1" aria-hidden="true"><img src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></a>`
+      : `<div class="project-image-link"><img src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></div>`;
+    const title = projectUrl ? `<a href="${projectUrl}">${project.title}</a>` : project.title;
+    const action = projectUrl
+      ? `<a class="text-link" href="${projectUrl}">View Project <span aria-hidden="true">→</span></a>`
+      : `<span class="project-card-note">${project.funding || 'Research project'}</span>`;
     return `
       <article class="project-card reveal">
-        <a class="project-image-link" href="${pathFor(`projects/${project.id}/`)}" tabindex="-1" aria-hidden="true">
-          <img src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy">
-        </a>
+        ${image}
         <div class="project-card-body">
           <div class="project-meta"><span>${project.period}</span><span>${project.status}</span></div>
-          <h3><a href="${pathFor(`projects/${project.id}/`)}">${project.title}</a></h3>
+          <h3>${title}</h3>
           <p>${project.summary}</p>
-          <a class="text-link" href="${pathFor(`projects/${project.id}/`)}">View Project <span aria-hidden="true">→</span></a>
+          ${action}
         </div>
       </article>`;
   }
@@ -122,18 +130,19 @@
 
   function newsItem(item) {
     const date = new Date(`${item.date}T00:00:00`);
-    const label = date.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' });
+    const label = item.display_date || date.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' });
     const title = item.url ? `<a href="${item.url}">${item.title}</a>` : item.title;
     return `<article class="news-item"><time datetime="${item.date}">${label}</time><p>${title}</p></article>`;
   }
 
   async function renderHome(profile) {
-    const [projects, publications, news] = await Promise.all([
+    const [projects, publications, news, cv] = await Promise.all([
       loadJson('assets/data/projects.json'),
       loadJson('assets/data/publications.json'),
-      loadJson('assets/data/news.json')
+      loadJson('assets/data/news.json'),
+      loadJson('assets/data/cv.json')
     ]);
-    document.querySelector('[data-profile-name]').textContent = profile.name;
+    document.querySelector('[data-profile-name]').innerHTML = `${profile.name}${profile.name_zh ? `<small>${profile.name_zh}</small>` : ''}`;
     document.querySelector('[data-profile-role]').textContent = `${profile.title} · ${profile.department}`;
     document.querySelector('[data-profile-affiliation]').textContent = profile.institution;
     document.querySelector('[data-profile-statement]').textContent = profile.tagline;
@@ -141,6 +150,13 @@
     document.querySelector('[data-profile-photo]').alt = `Profile photo of ${profile.name}`;
     document.querySelector('[data-profile-links]').innerHTML = profileLinks(profile);
     document.querySelector('[data-biography]').innerHTML = `<p>${profile.biography}</p>`;
+    const backgroundItem = (item) => `
+      <article class="background-item">
+        <time>${item.period}</time>
+        <div><h3>${item.title}</h3><p>${item.place}</p></div>
+      </article>`;
+    document.querySelector('[data-home-education]').innerHTML = cv.education.map(backgroundItem).join('');
+    document.querySelector('[data-home-experience]').innerHTML = cv.appointments.map(backgroundItem).join('');
     document.querySelector('[data-interests]').innerHTML = profile.research_interests.map((interest, index) => `
       <article class="interest-card reveal" style="--index: ${index}">
         <span class="interest-number">0${index + 1}</span>
@@ -194,18 +210,18 @@
         <img src="${assetUrl(project.image)}" alt="${project.image_alt}" width="720" height="440">
       </header>
       <section class="project-content section-shell section-rule">
-        <aside class="project-aside"><a class="text-link" href="${pathFor('projects/')}"><span aria-hidden="true">←</span> All projects</a><p class="detail-label">Status</p><p>${project.status}</p><p class="detail-label">Period</p><p>${project.period}</p></aside>
-        <div class="project-narrative prose"><h2>Overview</h2><p>${project.overview}</p><h2>Research challenge</h2><p>${project.challenge}</p><h2>Approach</h2><p>${project.approach}</p><h2>Expected outcomes</h2><ul>${project.outcomes.map((outcome) => `<li>${outcome}</li>`).join('')}</ul><p class="placeholder-note">This is placeholder project content. Add collaborators, funding, publications, videos, and project-specific results in <code>assets/data/projects.json</code>.</p></div>
+        <aside class="project-aside"><a class="text-link" href="${pathFor('projects/')}"><span aria-hidden="true">←</span> All projects</a><p class="detail-label">Status</p><p>${project.status}</p><p class="detail-label">Period</p><p>${project.period}</p><p class="detail-label">Funding</p><p>${project.funding}</p></aside>
+        <div class="project-narrative prose"><h2>Overview</h2><p>${project.overview}</p><h2>Research challenge</h2><p>${project.challenge}</p><h2>Approach</h2><p>${project.approach}</p><h2>Expected outcomes</h2><ul>${project.outcomes.map((outcome) => `<li>${outcome}</li>`).join('')}</ul></div>
       </section>`;
   }
 
   async function renderTeaching() {
     const teaching = await loadJson('assets/data/teaching.json');
     document.querySelector('[data-teaching-statement]').textContent = teaching.statement;
-    document.querySelector('[data-courses]').innerHTML = teaching.courses.map((course) => `
+    document.querySelector('[data-courses]').innerHTML = teaching.activities.map((course) => `
       <article class="course-row"><div><span class="course-code">${course.code}</span><span class="course-term">${course.term}</span></div><div><h3>${course.title}</h3><p>${course.description}</p></div></article>`).join('');
-    document.querySelector('[data-teaching-resources]').innerHTML = teaching.resources.map((item) => {
-      const content = `<h3>${item.title}</h3><p>${item.description}</p><span class="text-link">${item.url ? 'Learn more →' : 'Add resource link'}</span>`;
+    document.querySelector('[data-teaching-resources]').innerHTML = teaching.honors.map((item) => {
+      const content = `<h3>${item.title}</h3><p>${item.description}</p>${item.url ? '<span class="text-link">Learn more →</span>' : ''}`;
       return item.url ? `<a class="resource-card" href="${item.url}">${content}</a>` : `<article class="resource-card resource-placeholder">${content}</article>`;
     }).join('');
   }
@@ -228,7 +244,7 @@
 
   async function renderCv() {
     const cv = await loadJson('assets/data/cv.json');
-    const labels = { appointments: 'Appointments', education: 'Education', honors: 'Honors & Awards', service: 'Professional Service' };
+    const labels = { appointments: 'Appointments', education: 'Education', funding: 'Research Funding', outputs: 'Research Outputs', honors: 'Honors & Awards', service: 'Professional Service' };
     document.querySelector('[data-cv-sections]').innerHTML = Object.entries(cv).map(([key, entries]) => `
       <section class="cv-section" aria-labelledby="cv-${key}"><h2 id="cv-${key}">${labels[key]}</h2><div>${entries.map((item) => `<article class="cv-row"><p>${item.period}</p><div><h3>${item.title}</h3><p>${item.place}</p></div></article>`).join('')}</div></section>`).join('');
 
@@ -253,10 +269,11 @@
     const email = document.querySelector('[data-contact-email]');
     email.href = `mailto:${profile.email}`;
     email.textContent = profile.email;
-    document.querySelector('[data-contact-links]').innerHTML = `
-      <a href="${profile.links.google_scholar}" ${externalAttrs}><span>Google Scholar</span><span aria-hidden="true">↗</span></a>
-      <a href="${profile.links.orcid}" ${externalAttrs}><span>ORCID</span><span aria-hidden="true">↗</span></a>
-      <a href="${profile.links.github}" ${externalAttrs}><span>GitHub</span><span aria-hidden="true">↗</span></a>`;
+    document.querySelector('[data-contact-links]').innerHTML = [
+      profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}><span>Google Scholar</span><span aria-hidden="true">↗</span></a>` : '',
+      profile.links.orcid ? `<a href="${profile.links.orcid}" ${externalAttrs}><span>ORCID</span><span aria-hidden="true">↗</span></a>` : '',
+      profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}><span>GitHub</span><span aria-hidden="true">↗</span></a>` : ''
+    ].filter(Boolean).join('');
   }
 
   async function init() {
@@ -267,6 +284,8 @@
       const monogram = profile.name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase();
       const mark = document.querySelector('.site-mark-monogram');
       if (mark && monogram) mark.textContent = monogram;
+      const markText = document.querySelector('.site-mark-text');
+      if (markText) markText.textContent = profile.name;
       const page = document.body.dataset.page;
       if (page === 'home') await renderHome(profile);
       if (page === 'research') await renderResearch();

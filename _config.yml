@@ -1,5 +1,5 @@
-title: "Your Name — Academic Homepage"
-description: "Personal academic homepage for research, publications, projects, teaching, and news."
+title: "Xingzhao Guo — Academic Homepage"
+description: "Academic homepage of Xingzhao Guo, Lecturer at Zhengzhou University, working on rehabilitation robotics, intelligent robot control, and biomechanical analysis."
 url: "https://xingzhaoguo.github.io"
 baseurl: ""
 lang: "en"
@@ -10,4 +10,3 @@ lang: "en"
 exclude:
   - README.md
   - LICENSE
-
