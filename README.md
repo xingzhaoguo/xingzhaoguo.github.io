@@ -1,10 +1,10 @@
-# Academic Homepage Theme
+# 郭兴召个人学术主页
 
-这是一个面向高校教师、科研人员和研究团队的轻量个人学术主页主题，已经按照 `xingzhaoguo.github.io` 用户站点配置。它不依赖前端框架、数据库或第三方 CDN；GitHub Pages 会直接发布仓库中的静态文件。
+这是一个面向高校教师、科研人员和研究团队的轻量双语个人学术主页，已经按照 `xingzhaoguo.github.io` 用户站点配置。它不依赖前端框架、数据库或第三方 CDN；GitHub Pages 会直接发布仓库中的静态文件。中文位于站点根目录并作为默认语言，英文完整版本位于 `/en/`，导航栏右侧的 `中文 / EN` 会切换到当前页面对应的语言版本。
 
 ## 已包含的页面
 
-- 首页：个人资料、Biography、研究方向、代表项目、代表论文、近期动态
+- 首页：个人资料、个人简介、教育背景、工作经历、研究方向、代表项目、代表论文、近期动态
 - `Research`：五个主要研究方向
 - `Publications`：按年份倒序排列论文
 - `Projects`：项目卡片和三个独立项目详情页
@@ -15,13 +15,14 @@
 - `Contact`：邮箱、单位和学术平台链接
 - 自定义 `404` 页面、站点地图和社交分享图片
 
-主导航保持为：`Home | Research | Publications | Projects | Teaching | News | Contact`。`Team` 和 `CV` 可从页脚进入。
+中文主导航为：`首页 | 研究方向 | 论文成果 | 科研项目 | 教学指导 | 学术动态 | 联系方式`；英文主导航保留为：`Home | Research | Publications | Projects | Teaching | News | Contact`。`团队 / Team` 和 `个人履历 / CV` 可从页脚进入。
 
 ## 文件结构
 
 ```text
 .
 ├── index.html
+├── en/                       # 英文镜像页面
 ├── research/                 # 各栏目页面
 ├── publications/
 ├── projects/                 # 项目列表与独立详情页
@@ -33,7 +34,8 @@
 ├── assets/
 │   ├── css/main.css          # 全站视觉规范和响应式样式
 │   ├── js/site.js            # 导航、页脚和数据渲染
-│   ├── data/                 # 可维护内容数据
+│   ├── data/                 # 英文内容数据
+│   │   └── zh/               # 中文内容数据
 │   ├── images/
 │   │   ├── profile/
 │   │   └── projects/
@@ -45,7 +47,7 @@
 
 ## 修改个人信息
 
-编辑 [`assets/data/profile.json`](assets/data/profile.json)：
+中文资料编辑 [`assets/data/zh/profile.json`](assets/data/zh/profile.json)，英文资料编辑 [`assets/data/profile.json`](assets/data/profile.json)。两个文件使用相同字段：
 
 - `name`：姓名
 - `title`：职称
@@ -58,12 +60,12 @@
 - `links`：Google Scholar、ORCID 和 GitHub 地址
 - `research_interests`：首页研究方向标签
 
-同时建议把各 HTML 文件中的 `<title>`、`description` 和 Open Graph 文案从占位内容改为真实信息；站点主元数据在 [`_config.yml`](_config.yml) 中。
+根目录 HTML 是中文静态页面，`en/` 中对应 HTML 是英文静态页面；修改姓名或研究重点后，也应同步更新页面的 `<title>`、`description` 和 Open Graph 文案。站点默认元数据在 [`_config.yml`](_config.yml) 中。
 
 ## 更换照片
 
 1. 把照片放入 `assets/images/profile/`，推荐使用压缩后的 WebP 或 JPG，竖向比例约 `4:5`。
-2. 在 `assets/data/profile.json` 中把 `photo` 改为相应路径，例如：
+2. 在 `assets/data/zh/profile.json` 和 `assets/data/profile.json` 中把 `photo` 改为同一相应路径，例如：
 
 ```json
 "photo": "assets/images/profile/your-name.webp"
@@ -73,12 +75,12 @@
 
 ## 修改研究方向
 
-- 首页的简短研究方向：编辑 `assets/data/profile.json` 中的 `research_interests`。
-- Research 页的完整介绍：编辑 [`assets/data/research.json`](assets/data/research.json)。每一项包含标题、摘要、核心问题和方法标签。
+- 中文首页的简短研究方向：编辑 `assets/data/zh/profile.json` 中的 `research_interests`；英文版编辑 `assets/data/profile.json`。
+- 完整研究介绍：中文编辑 `assets/data/zh/research.json`，英文编辑 [`assets/data/research.json`](assets/data/research.json)。每一项包含标题、摘要、核心问题和方法标签。
 
 ## 添加或修改论文
 
-编辑 [`assets/data/publications.json`](assets/data/publications.json)。每篇论文的格式如下：
+中文论文列表编辑 `assets/data/zh/publications.json`，英文论文列表编辑 [`assets/data/publications.json`](assets/data/publications.json)。建议两个文件保持相同论文数量与排序。每篇论文的格式如下：
 
 ```json
 {
@@ -99,20 +101,21 @@
 
 ## 添加或修改项目
 
-项目内容统一存放在 [`assets/data/projects.json`](assets/data/projects.json)。项目图片放在 `assets/images/projects/`。
+中文项目内容存放在 `assets/data/zh/projects.json`，英文项目内容存放在 [`assets/data/projects.json`](assets/data/projects.json)。项目图片共用 `assets/images/projects/`。
 
 新增项目时：
 
 1. 在 `projects.json` 中增加一条记录，并设置唯一的 `id`。
-2. 复制任一现有项目详情目录，例如 `projects/trunk-rehabilitation-robot/`。
-3. 将新目录改为 `projects/<id>/`，并把其中 `<body>` 的 `data-project-id` 改为相同的 `id`。
-4. 修改详情页的 `<title>`、description 和 Open Graph 信息，并设置 `has_detail: true`。不需要详情页的项目可设置 `has_detail: false`。
+2. 同时在中英文 JSON 中使用相同的唯一 `id`。
+3. 复制中文详情目录（例如 `projects/trunk-rehabilitation-robot/`）和英文详情目录（例如 `en/projects/trunk-rehabilitation-robot/`）。
+4. 将新目录分别改为 `projects/<id>/` 与 `en/projects/<id>/`，并把两个页面 `<body>` 的 `data-project-id` 改为相同的 `id`。
+5. 分别修改中英文详情页的 `<title>`、description 和 Open Graph 信息，并设置 `has_detail: true`。不需要详情页的项目可设置 `has_detail: false`。
 
 页面正文会自动读取 `overview`、`challenge`、`approach` 和 `outcomes`。`featured: true` 的前三个项目会显示在首页。
 
 ## 修改新闻
 
-编辑 [`assets/data/news.json`](assets/data/news.json)：
+中文动态编辑 `assets/data/zh/news.json`，英文动态编辑 [`assets/data/news.json`](assets/data/news.json)：
 
 ```json
 {
@@ -126,9 +129,9 @@
 
 ## 修改课程、团队和履历
 
-- 教学内容：`assets/data/teaching.json`
-- 团队成员：`assets/data/team.json`
-- CV 页面条目：`assets/data/cv.json`
+- 教学内容：中文 `assets/data/zh/teaching.json`，英文 `assets/data/teaching.json`
+- 团队成员：中文 `assets/data/zh/team.json`，英文 `assets/data/team.json`
+- CV 页面条目：中文 `assets/data/zh/cv.json`，英文 `assets/data/cv.json`
 
 ## 添加 PDF CV
 
@@ -148,7 +151,7 @@ CV 页面会自动检测该文件并启用 `Download PDF CV` 按钮；文件不�
 python -m http.server 4173
 ```
 
-然后访问 `http://localhost:4173/`。
+然后访问中文首页 `http://localhost:4173/` 或英文首页 `http://localhost:4173/en/`。
 
 运行结构、路径和数据检查：
 
@@ -179,7 +182,7 @@ https://xingzhaoguo.github.io/
 
 ## 发布前检查
 
-- 替换姓名、邮箱、单位和学术平台链接
+- 同步检查中英文姓名、邮箱、单位和学术平台链接
 - 替换头像和项目占位图
 - 移除示例论文 DOI 或换成真实链接
 - 添加公开版 `assets/files/cv.pdf`

@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Development of a Multi-DOF Robot Based on Serial–Parallel Mechanism for Dynamic Cervical Traction",
+    "authors": "Zheng Tao 等，郭兴召（通讯作者）",
+    "venue": "IEEE International Conference on Automation Science and Engineering (CASE)",
+    "year": 2026,
+    "type": "会议论文 · 已录用",
+    "selected": true,
+    "pdf": "",
+    "doi": ""
+  },
+  {
+    "title": "Evaluating Trunk Control Ability in Patients With Spinal Cord Injury via a Robotic Brace",
+    "authors": "Xingzhao Guo, Zhihao Zhou, Jiehong Shi, Rongli Wang, Ninghua Wang, and Qining Wang",
+    "venue": "IEEE Transactions on Biomedical Engineering, 72(11), 3244–3255",
+    "year": 2025,
+    "type": "期刊论文",
+    "selected": true,
+    "pdf": "",
+    "doi": ""
+  },
+  {
+    "title": "Novel Patterns in Discrete Ikeda Map: Quint Points and Complex Non-quantum Chirality",
+    "authors": "Zeyi Liu, Xingzhao Guo, and Xiaobo Rao",
+    "venue": "Chaos, 35(1)",
+    "year": 2025,
+    "type": "期刊论文",
+    "selected": false,
+    "pdf": "",
+    "doi": ""
+  },
+  {
+    "title": "Multi-objective Optimization and Performance Analysis of 3-RPR Parallel Mechanism in Robotic Brace",
+    "authors": "Xingzhao Guo, Zhihao Zhou, and Qining Wang",
+    "venue": "Mechatronics, 95",
+    "year": 2023,
+    "type": "期刊论文",
+    "selected": true,
+    "pdf": "",
+    "doi": ""
+  },
+  {
+    "title": "Serial–Parallel Mechanism and Controller Design of a Robotic Brace for Dynamic Trunk Support",
+    "authors": "Xingzhao Guo, Zhihao Zhou, Yuan Gao, Jingeng Mai, and Qining Wang",
+    "venue": "IEEE/ASME Transactions on Mechatronics, 27(6), 4518–4529",
+    "year": 2022,
+    "type": "期刊论文",
+    "selected": true,
+    "pdf": "",
+    "doi": ""
+  },
+  {
+    "title": "Admittance Control of Wearable Robotic Brace for Dynamic Trunk Support",
+    "authors": "Xingzhao Guo, Zhihao Zhou, and Qining Wang",
+    "venue": "IEEE RAS/EMBS International Conference on Biomedical Robotics and Biomechatronics (BioRob)",
+    "year": 2022,
+    "type": "会议论文",
+    "selected": false,
+    "pdf": "",
+    "doi": ""
+  }
+]

@@ -10,19 +10,45 @@
   const pathFor = (path = '') => `${rootPath}/${path}`.replace(/\/{2,}/g, '/');
   const assetUrl = (path) => new URL(pathFor(path), window.location.origin).href;
   const externalAttrs = 'target="_blank" rel="noopener noreferrer"';
+  const language = document.body.dataset.lang === 'en' ? 'en' : 'zh';
+  const isChinese = language === 'zh';
 
-  const navigation = [
-    ['Home', ''],
-    ['Research', 'research/'],
-    ['Publications', 'publications/'],
-    ['Projects', 'projects/'],
-    ['Teaching', 'teaching/'],
-    ['News', 'news/'],
-    ['Contact', 'contact/']
-  ];
+  const ui = isChinese ? {
+    nav: [['home', '首页', ''], ['research', '研究方向', 'research/'], ['publications', '论文成果', 'publications/'], ['projects', '科研项目', 'projects/'], ['teaching', '教学指导', 'teaching/'], ['news', '学术动态', 'news/'], ['contact', '联系方式', 'contact/']],
+    homeLabel: '郭兴召学术主页', toggleNavigation: '展开或收起导航', primaryNavigation: '主导航',
+    email: '邮箱', team: '团队', cv: '个人履历', built: '基于 GitHub Pages 构建',
+    viewProject: '查看项目', researchProject: '科研项目', guidingQuestion: '核心问题', profilePhoto: '个人照片', pdfHint: '在 publications.json 中添加 PDF 路径',
+    project: '科研项目', projectNotFound: '未找到该项目', backProjects: '返回项目列表', allProjects: '全部项目',
+    status: '状态', period: '时间', funding: '项目来源', overview: '项目概述', challenge: '研究问题', approach: '研究方法', outcomes: '预期成果',
+    coursesLink: '了解更多 →', resourcePlaceholder: '', cvLabels: { appointments: '工作经历', education: '教育背景', funding: '科研项目', outputs: '科研成果', honors: '荣誉奖励', service: '学术兼职' },
+    cvDownload: '下载 PDF 简历 ↓', dataError: '网站内容加载失败。请通过网页服务器访问本站，不要直接打开 HTML 文件。'
+  } : {
+    nav: [['home', 'Home', ''], ['research', 'Research', 'research/'], ['publications', 'Publications', 'publications/'], ['projects', 'Projects', 'projects/'], ['teaching', 'Teaching', 'teaching/'], ['news', 'News', 'news/'], ['contact', 'Contact', 'contact/']],
+    homeLabel: 'Academic homepage of Xingzhao Guo', toggleNavigation: 'Toggle navigation', primaryNavigation: 'Primary navigation',
+    email: 'Email', team: 'Team', cv: 'CV', built: 'Built for GitHub Pages',
+    viewProject: 'View Project', researchProject: 'Research project', guidingQuestion: 'Guiding question', profilePhoto: 'Profile photo of', pdfHint: 'Add a PDF path in publications.json',
+    project: 'Project', projectNotFound: 'Project not found', backProjects: 'Back to projects', allProjects: 'All projects',
+    status: 'Status', period: 'Period', funding: 'Funding', overview: 'Overview', challenge: 'Research challenge', approach: 'Approach', outcomes: 'Expected outcomes',
+    coursesLink: 'Learn more →', resourcePlaceholder: '', cvLabels: { appointments: 'Appointments', education: 'Education', funding: 'Research Funding', outputs: 'Research Outputs', honors: 'Honors & Awards', service: 'Professional Service' },
+    cvDownload: 'Download PDF CV ↓', dataError: 'Site content could not be loaded. Please serve the repository through a web server rather than opening index.html directly.'
+  };
+
+  const localizedPath = (path = '') => pathFor(`${isChinese ? '' : 'en/'}${path}`);
+  const localizedDataPath = (path) => isChinese && path.startsWith('assets/data/')
+    ? path.replace('assets/data/', 'assets/data/zh/')
+    : path;
+
+  function currentContentRoute() {
+    const page = document.body.dataset.page || 'home';
+    if (page === 'home') return '';
+    if (page === 'project') return `projects/${document.body.dataset.projectId}/`;
+    if (page === '404') return '';
+    return `${page}/`;
+  }
 
   async function loadJson(path) {
-    const response = await fetch(assetUrl(path));
+    const contentPath = localizedDataPath(path);
+    const response = await fetch(assetUrl(contentPath));
     if (!response.ok) throw new Error(`Could not load ${path}`);
     return response.json();
   }
@@ -31,23 +57,31 @@
     const header = document.querySelector('[data-site-header]');
     if (!header) return;
     const currentPage = document.body.dataset.page || 'home';
-    const links = navigation.map(([label, path]) => {
-      const pageKey = label.toLowerCase();
+    const links = ui.nav.map(([pageKey, label, path]) => {
       const active = currentPage === pageKey || (currentPage === 'project' && pageKey === 'projects');
-      return `<a href="${pathFor(path)}"${active ? ' aria-current="page"' : ''}>${label}</a>`;
+      return `<a href="${localizedPath(path)}"${active ? ' aria-current="page"' : ''}>${label}</a>`;
     }).join('');
+    const route = currentContentRoute();
+    const chineseUrl = pathFor(route);
+    const englishUrl = pathFor(`en/${route}`);
+    const languageSwitch = isChinese
+      ? `<div class="language-switch" aria-label="语言切换"><span aria-current="true">中文</span><span aria-hidden="true">/</span><a href="${englishUrl}" lang="en">EN</a></div>`
+      : `<div class="language-switch" aria-label="Language switch"><a href="${chineseUrl}" lang="zh-CN">中文</a><span aria-hidden="true">/</span><span aria-current="true">EN</span></div>`;
 
     header.innerHTML = `
       <div class="nav-shell">
-        <a class="site-mark" href="${pathFor('')}" aria-label="Academic homepage">
+        <a class="site-mark" href="${localizedPath('')}" aria-label="${ui.homeLabel}">
           <span class="site-mark-monogram" aria-hidden="true">YN</span>
           <span class="site-mark-text">Xingzhao Guo</span>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span></span><span></span><span></span>
-        </button>
-        <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">${links}</nav>
+        <div class="nav-actions">
+          <nav class="primary-nav" id="primary-navigation" aria-label="${ui.primaryNavigation}">${links}</nav>
+          ${languageSwitch}
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+            <span class="sr-only">${ui.toggleNavigation}</span>
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>`;
 
     const button = header.querySelector('.nav-toggle');
@@ -64,11 +98,11 @@
     if (!footer) return;
     const year = new Date().getFullYear();
     const academicLinks = [
-      `<a href="mailto:${profile.email}">Email</a>`,
+      `<a href="mailto:${profile.email}">${ui.email}</a>`,
       profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}>GitHub</a>` : '',
       profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
-      `<a href="${pathFor('team/')}">Team</a>`,
-      `<a href="${pathFor('cv/')}">CV</a>`
+      `<a href="${localizedPath('team/')}">${ui.team}</a>`,
+      `<a href="${localizedPath('cv/')}">${ui.cv}</a>`
     ].filter(Boolean).join('');
     footer.innerHTML = `
       <div class="footer-shell">
@@ -77,13 +111,13 @@
           <p>${profile.title} · ${profile.institution}</p>
         </div>
         <div class="footer-links">${academicLinks}</div>
-        <p class="copyright">© ${year} ${profile.name}. Built for GitHub Pages.</p>
+        <p class="copyright">© ${year} ${profile.name}. ${ui.built}.</p>
       </div>`;
   }
 
   function profileLinks(profile) {
     return [
-      `<a href="mailto:${profile.email}">Email</a>`,
+      `<a href="mailto:${profile.email}">${ui.email}</a>`,
       profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
       profile.links.orcid ? `<a href="${profile.links.orcid}" ${externalAttrs}>ORCID</a>` : '',
       profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}>GitHub</a>` : ''
@@ -91,14 +125,14 @@
   }
 
   function projectCard(project) {
-    const projectUrl = project.has_detail === false ? '' : pathFor(`projects/${project.id}/`);
+    const projectUrl = project.has_detail === false ? '' : localizedPath(`projects/${project.id}/`);
     const image = projectUrl
       ? `<a class="project-image-link" href="${projectUrl}" tabindex="-1" aria-hidden="true"><img src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></a>`
       : `<div class="project-image-link"><img src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></div>`;
     const title = projectUrl ? `<a href="${projectUrl}">${project.title}</a>` : project.title;
     const action = projectUrl
-      ? `<a class="text-link" href="${projectUrl}">View Project <span aria-hidden="true">→</span></a>`
-      : `<span class="project-card-note">${project.funding || 'Research project'}</span>`;
+      ? `<a class="text-link" href="${projectUrl}">${ui.viewProject} <span aria-hidden="true">→</span></a>`
+      : `<span class="project-card-note">${project.funding || ui.researchProject}</span>`;
     return `
       <article class="project-card reveal">
         ${image}
@@ -113,7 +147,7 @@
 
   function publicationItem(item) {
     const links = [
-      item.pdf ? `<a href="${assetUrl(item.pdf)}">PDF</a>` : '<span class="link-placeholder" title="Add a PDF path in publications.json">PDF</span>',
+      item.pdf ? `<a href="${assetUrl(item.pdf)}">PDF</a>` : `<span class="link-placeholder" title="${ui.pdfHint}">PDF</span>`,
       item.doi ? `<a href="${item.doi}" ${externalAttrs}>DOI</a>` : ''
     ].filter(Boolean).join('<span aria-hidden="true">·</span>');
     return `
@@ -130,7 +164,7 @@
 
   function newsItem(item) {
     const date = new Date(`${item.date}T00:00:00`);
-    const label = item.display_date || date.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' });
+    const label = item.display_date || date.toLocaleDateString(isChinese ? 'zh-CN' : 'en', { year: 'numeric', month: 'short', day: '2-digit' });
     const title = item.url ? `<a href="${item.url}">${item.title}</a>` : item.title;
     return `<article class="news-item"><time datetime="${item.date}">${label}</time><p>${title}</p></article>`;
   }
@@ -147,7 +181,7 @@
     document.querySelector('[data-profile-affiliation]').textContent = profile.institution;
     document.querySelector('[data-profile-statement]').textContent = profile.tagline;
     document.querySelector('[data-profile-photo]').src = assetUrl(profile.photo);
-    document.querySelector('[data-profile-photo]').alt = `Profile photo of ${profile.name}`;
+    document.querySelector('[data-profile-photo]').alt = `${ui.profilePhoto}${isChinese ? '：' : ' '}${profile.name}`;
     document.querySelector('[data-profile-links]').innerHTML = profileLinks(profile);
     document.querySelector('[data-biography]').innerHTML = `<p>${profile.biography}</p>`;
     const backgroundItem = (item) => `
@@ -174,7 +208,7 @@
         <div class="research-index">${area.number}</div>
         <div class="research-summary"><h3>${area.title}</h3><p>${area.summary}</p></div>
         <div class="research-detail">
-          <p class="detail-label">Guiding question</p><p>${area.questions}</p>
+          <p class="detail-label">${ui.guidingQuestion}</p><p>${area.questions}</p>
           <div class="method-tags">${area.methods.map((method) => `<span>${method}</span>`).join('')}</div>
         </div>
       </article>`).join('');
@@ -201,17 +235,17 @@
     const project = projects.find((item) => item.id === document.body.dataset.projectId);
     const main = document.querySelector('[data-project-detail]');
     if (!project) {
-      main.innerHTML = '<section class="not-found section-shell"><p class="eyebrow">Project</p><h1>Project not found.</h1><a class="button button-primary" href="../">Back to projects</a></section>';
+      main.innerHTML = `<section class="not-found section-shell"><p class="eyebrow">${ui.project}</p><h1>${ui.projectNotFound}</h1><a class="button button-primary" href="${localizedPath('projects/')}">${ui.backProjects}</a></section>`;
       return;
     }
     main.innerHTML = `
       <header class="project-hero section-shell">
-        <div class="project-hero-copy"><p class="eyebrow">Research project · ${project.status}</p><h1>${project.title}</h1><p class="page-intro">${project.summary}</p><p class="project-period">${project.period}</p></div>
+        <div class="project-hero-copy"><p class="eyebrow">${ui.researchProject} · ${project.status}</p><h1>${project.title}</h1><p class="page-intro">${project.summary}</p><p class="project-period">${project.period}</p></div>
         <img src="${assetUrl(project.image)}" alt="${project.image_alt}" width="720" height="440">
       </header>
       <section class="project-content section-shell section-rule">
-        <aside class="project-aside"><a class="text-link" href="${pathFor('projects/')}"><span aria-hidden="true">←</span> All projects</a><p class="detail-label">Status</p><p>${project.status}</p><p class="detail-label">Period</p><p>${project.period}</p><p class="detail-label">Funding</p><p>${project.funding}</p></aside>
-        <div class="project-narrative prose"><h2>Overview</h2><p>${project.overview}</p><h2>Research challenge</h2><p>${project.challenge}</p><h2>Approach</h2><p>${project.approach}</p><h2>Expected outcomes</h2><ul>${project.outcomes.map((outcome) => `<li>${outcome}</li>`).join('')}</ul></div>
+        <aside class="project-aside"><a class="text-link" href="${localizedPath('projects/')}"><span aria-hidden="true">←</span> ${ui.allProjects}</a><p class="detail-label">${ui.status}</p><p>${project.status}</p><p class="detail-label">${ui.period}</p><p>${project.period}</p><p class="detail-label">${ui.funding}</p><p>${project.funding}</p></aside>
+        <div class="project-narrative prose"><h2>${ui.overview}</h2><p>${project.overview}</p><h2>${ui.challenge}</h2><p>${project.challenge}</p><h2>${ui.approach}</h2><p>${project.approach}</p><h2>${ui.outcomes}</h2><ul>${project.outcomes.map((outcome) => `<li>${outcome}</li>`).join('')}</ul></div>
       </section>`;
   }
 
@@ -221,7 +255,7 @@
     document.querySelector('[data-courses]').innerHTML = teaching.activities.map((course) => `
       <article class="course-row"><div><span class="course-code">${course.code}</span><span class="course-term">${course.term}</span></div><div><h3>${course.title}</h3><p>${course.description}</p></div></article>`).join('');
     document.querySelector('[data-teaching-resources]').innerHTML = teaching.honors.map((item) => {
-      const content = `<h3>${item.title}</h3><p>${item.description}</p>${item.url ? '<span class="text-link">Learn more →</span>' : ''}`;
+      const content = `<h3>${item.title}</h3><p>${item.description}</p>${item.url ? `<span class="text-link">${ui.coursesLink}</span>` : ''}`;
       return item.url ? `<a class="resource-card" href="${item.url}">${content}</a>` : `<article class="resource-card resource-placeholder">${content}</article>`;
     }).join('');
   }
@@ -244,9 +278,8 @@
 
   async function renderCv() {
     const cv = await loadJson('assets/data/cv.json');
-    const labels = { appointments: 'Appointments', education: 'Education', funding: 'Research Funding', outputs: 'Research Outputs', honors: 'Honors & Awards', service: 'Professional Service' };
     document.querySelector('[data-cv-sections]').innerHTML = Object.entries(cv).map(([key, entries]) => `
-      <section class="cv-section" aria-labelledby="cv-${key}"><h2 id="cv-${key}">${labels[key]}</h2><div>${entries.map((item) => `<article class="cv-row"><p>${item.period}</p><div><h3>${item.title}</h3><p>${item.place}</p></div></article>`).join('')}</div></section>`).join('');
+      <section class="cv-section" aria-labelledby="cv-${key}"><h2 id="cv-${key}">${ui.cvLabels[key]}</h2><div>${entries.map((item) => `<article class="cv-row"><p>${item.period}</p><div><h3>${item.title}</h3><p>${item.place}</p></div></article>`).join('')}</div></section>`).join('');
 
     const button = document.querySelector('[data-cv-download]');
     try {
@@ -254,7 +287,7 @@
       if (response.ok) {
         button.href = assetUrl('assets/files/cv.pdf');
         button.className = 'button button-primary';
-        button.textContent = 'Download PDF CV ↓';
+        button.textContent = ui.cvDownload;
         button.removeAttribute('aria-disabled');
         button.removeAttribute('title');
       }
@@ -301,7 +334,7 @@
     } catch (error) {
       console.error(error);
       const main = document.querySelector('main');
-      if (main) main.insertAdjacentHTML('afterbegin', '<p class="data-error">Site content could not be loaded. Please serve the repository through a web server rather than opening index.html directly.</p>');
+      if (main) main.insertAdjacentHTML('afterbegin', `<p class="data-error">${ui.dataError}</p>`);
     }
   }
 

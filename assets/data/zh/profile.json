@@ -1,0 +1,24 @@
+{
+  "name": "郭兴召",
+  "name_zh": "Xingzhao Guo",
+  "title": "讲师",
+  "department": "机械与动力工程学院",
+  "institution": "郑州大学",
+  "location": "中国 · 河南郑州",
+  "tagline": "面向康复需求，开展柔顺机构设计、机器人智能控制与生物力学分析研究。",
+  "biography": "郭兴召，郑州大学机械与动力工程学院讲师，北京大学一般力学与力学基础专业理学博士。主要从事康复机器人、机器人智能控制、生物力学分析与变刚度助力系统研究。在 SCI/EI/核心期刊及会议发表论文 10 余篇，申请国家发明专利 14 项，主持国家自然科学基金青年科学基金项目（C 类）等国家级、省部级科研项目。研制的躯干康复机器人已开展超过 50 例患者临床实验，并获 CCTV-1《晚间新闻》报道。",
+  "email": "xingzhaoguo@zzu.edu.cn",
+  "photo": "assets/images/profile/xingzhao-guo.webp",
+  "links": {
+    "google_scholar": "",
+    "orcid": "",
+    "github": "https://github.com/xingzhaoguo"
+  },
+  "research_interests": [
+    "康复机器人",
+    "机器人智能控制",
+    "生物力学分析",
+    "变刚度机构",
+    "临床评估"
+  ]
+}

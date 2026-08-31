@@ -1,8 +1,8 @@
-title: "Xingzhao Guo — Academic Homepage"
-description: "Academic homepage of Xingzhao Guo, Lecturer at Zhengzhou University, working on rehabilitation robotics, intelligent robot control, and biomechanical analysis."
+title: "郭兴召 — 个人学术主页"
+description: "郭兴召，郑州大学机械与动力工程学院讲师，主要从事康复机器人、机器人智能控制与生物力学分析研究。"
 url: "https://xingzhaoguo.github.io"
 baseurl: ""
-lang: "en"
+lang: "zh-CN"
 
 # The site is intentionally build-free. GitHub Pages serves the committed files
 # directly because .nojekyll is present. These values remain useful metadata and
