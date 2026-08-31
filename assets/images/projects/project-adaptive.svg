@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-labelledby="title">
+  <title id="title">Adaptive Rehabilitation Robot project placeholder</title>
+  <rect width="720" height="440" fill="#dfece7"/>
+  <g fill="none" stroke="#1e5b4c" stroke-width="3" opacity=".78">
+    <circle cx="360" cy="220" r="118"/><circle cx="360" cy="220" r="72"/><path d="M150 220h420M360 70v300"/>
+  </g>
+  <circle cx="360" cy="220" r="18" fill="#1e5b4c"/>
+</svg>

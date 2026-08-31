@@ -1,0 +1,26 @@
+{
+  "intro": "Our group brings together students and collaborators interested in robotics, human movement, and assistive technology. Replace these placeholders with names, portraits, research topics, and personal links.",
+  "groups": [
+    {
+      "title": "Graduate Researchers",
+      "members": [
+        {"name": "Graduate Student A", "role": "PhD Student", "focus": "Adaptive control for rehabilitation robots", "initials": "GA"},
+        {"name": "Graduate Student B", "role": "MSc Student", "focus": "Biomechanical modeling and wearable sensing", "initials": "GB"}
+      ]
+    },
+    {
+      "title": "Undergraduate Researchers",
+      "members": [
+        {"name": "Undergraduate Student A", "role": "Research Assistant", "focus": "Variable-stiffness mechanism prototyping", "initials": "UA"},
+        {"name": "Undergraduate Student B", "role": "Capstone Student", "focus": "Human–robot interaction experiments", "initials": "UB"}
+      ]
+    },
+    {
+      "title": "Collaborators",
+      "members": [
+        {"name": "Collaborator A", "role": "Clinical Collaborator", "focus": "Motor rehabilitation and clinical translation", "initials": "CA"},
+        {"name": "Collaborator B", "role": "Research Collaborator", "focus": "Neural interfaces and signal processing", "initials": "CB"}
+      ]
+    }
+  ]
+}

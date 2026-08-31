@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-labelledby="title">
+  <title id="title">Neural Intent Interface project placeholder</title>
+  <rect width="720" height="440" fill="#ece8df"/>
+  <g stroke="#795a34" stroke-width="3" opacity=".72">
+    <path d="M128 250l112-96 100 128 118-154 132 118" fill="none"/>
+    <g fill="#795a34"><circle cx="128" cy="250" r="12"/><circle cx="240" cy="154" r="12"/><circle cx="340" cy="282" r="12"/><circle cx="458" cy="128" r="12"/><circle cx="590" cy="246" r="12"/></g>
+  </g>
+</svg>

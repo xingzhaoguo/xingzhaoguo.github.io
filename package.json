@@ -1,0 +1,9 @@
+{
+  "name": "academic-homepage-theme",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A build-free academic homepage theme for GitHub Pages.",
+  "scripts": {
+    "validate": "node scripts/validate-site.mjs"
+  }
+}

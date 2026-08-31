@@ -1,0 +1,19 @@
+{
+  "appointments": [
+    {"period": "20XX–Present", "title": "Associate Professor", "place": "Department / School, University Name"},
+    {"period": "20XX–20XX", "title": "Assistant Professor", "place": "Department / School, University Name"}
+  ],
+  "education": [
+    {"period": "20XX", "title": "PhD in Mechanical Engineering", "place": "University Name"},
+    {"period": "20XX", "title": "MSc in Robotics", "place": "University Name"},
+    {"period": "20XX", "title": "BEng in Mechanical Engineering", "place": "University Name"}
+  ],
+  "honors": [
+    {"period": "20XX", "title": "Example Research Award", "place": "Awarding Organization"},
+    {"period": "20XX", "title": "Example Teaching Award", "place": "University Name"}
+  ],
+  "service": [
+    {"period": "20XX–Present", "title": "Associate Editor / Editorial Board Member", "place": "Journal Name"},
+    {"period": "20XX–Present", "title": "Program Committee Member", "place": "Conference Name"}
+  ]
+}

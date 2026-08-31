@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xingzhaoguo.github.io/sitemap.xml

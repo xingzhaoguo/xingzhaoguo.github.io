@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal academic homepage for research, publications, projects, teaching, and news.">
+    <meta name="theme-color" content="#f7f8f6">
+    <meta property="og:title" content="Your Name — Academic Homepage">
+    <meta property="og:description" content="Research in rehabilitation robotics, human–robot interaction, biomechanics, and intelligent assistive systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://xingzhaoguo.github.io/assets/images/og-academic-homepage.png">
+    <title>Your Name — Academic Homepage</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/site.js" defer></script>
+  </head>
+  <body data-page="home">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header" data-site-header></header>
+
+    <main id="main-content">
+      <section class="profile-hero section-shell" aria-labelledby="profile-name">
+        <div class="profile-photo-wrap reveal">
+          <img class="profile-photo" data-profile-photo src="assets/images/profile/profile-placeholder.svg" alt="Profile photo placeholder" width="360" height="440">
+        </div>
+        <div class="profile-copy reveal reveal-delay-1">
+          <p class="eyebrow">Academic profile</p>
+          <h1 id="profile-name" data-profile-name>Your Name</h1>
+          <p class="profile-role" data-profile-role>Associate Professor · Department / School</p>
+          <p class="profile-affiliation" data-profile-affiliation>University Name</p>
+          <p class="profile-statement" data-profile-statement>Designing human-centered robotic systems that make rehabilitation more adaptive, intuitive, and effective.</p>
+          <div class="profile-links" data-profile-links aria-label="Academic profile links"></div>
+        </div>
+      </section>
+
+      <section class="content-section section-shell section-rule" aria-labelledby="about-heading">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-heading">Biography</h2>
+        </div>
+        <div class="section-body prose" data-biography></div>
+      </section>
+
+      <section class="content-section section-shell section-rule" aria-labelledby="interests-heading">
+        <div class="section-heading">
+          <p class="eyebrow">Focus areas</p>
+          <h2 id="interests-heading">Research Interests</h2>
+        </div>
+        <div class="interest-grid" data-interests></div>
+      </section>
+
+      <section class="content-section section-shell section-tint" aria-labelledby="projects-heading">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2 id="projects-heading">Projects</h2>
+          </div>
+          <a class="text-link section-link" href="projects/">View all projects <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="project-grid" data-featured-projects></div>
+      </section>
+
+      <section class="content-section section-shell section-rule" aria-labelledby="publications-heading">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">Recent scholarship</p>
+            <h2 id="publications-heading">Selected Publications</h2>
+          </div>
+          <a class="text-link section-link" href="publications/">All publications <span aria-hidden="true">→</span></a>
+        </div>
+        <ol class="publication-list" data-featured-publications></ol>
+      </section>
+
+      <section class="content-section section-shell section-rule" aria-labelledby="news-heading">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">Updates</p>
+            <h2 id="news-heading">Recent News</h2>
+          </div>
+          <a class="text-link section-link" href="news/">News archive <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="news-list" data-recent-news></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-labelledby="title">
+  <title id="title">Variable-Stiffness Exosuit project placeholder</title>
+  <rect width="720" height="440" fill="#e7e9ef"/>
+  <g fill="none" stroke="#45536f" stroke-width="4" opacity=".78">
+    <path d="M104 286c86-160 134 44 221-84s137 108 287-48"/>
+    <path d="M104 326c86-160 134 44 221-84s137 108 287-48" opacity=".4"/>
+  </g>
+  <g fill="#45536f"><circle cx="104" cy="286" r="10"/><circle cx="325" cy="202" r="10"/><circle cx="612" cy="154" r="10"/></g>
+</svg>

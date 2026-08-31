@@ -1,0 +1,13 @@
+title: "Your Name — Academic Homepage"
+description: "Personal academic homepage for research, publications, projects, teaching, and news."
+url: "https://xingzhaoguo.github.io"
+baseurl: ""
+lang: "en"
+
+# The site is intentionally build-free. GitHub Pages serves the committed files
+# directly because .nojekyll is present. These values remain useful metadata and
+# make a later migration to Jekyll straightforward.
+exclude:
+  - README.md
+  - LICENSE
+

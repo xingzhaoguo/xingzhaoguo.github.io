@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Human-in-the-Loop Adaptation for Personalized Robotic Rehabilitation",
+    "authors": "Your Name, A. Collaborator, and B. Researcher",
+    "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+    "year": 2026,
+    "type": "Journal Article",
+    "selected": true,
+    "pdf": "",
+    "doi": "https://doi.org/10.0000/placeholder.2026.001"
+  },
+  {
+    "title": "A Variable-Stiffness Mechanism for Safe Physical Human–Robot Interaction",
+    "authors": "C. Student, Your Name, and D. Collaborator",
+    "venue": "IEEE Robotics and Automation Letters",
+    "year": 2025,
+    "type": "Journal Article",
+    "selected": true,
+    "pdf": "",
+    "doi": "https://doi.org/10.0000/placeholder.2025.002"
+  },
+  {
+    "title": "Biomechanical Indicators of Motor Recovery During Robot-Assisted Training",
+    "authors": "Your Name, E. Scientist, and F. Clinician",
+    "venue": "Journal of NeuroEngineering and Rehabilitation",
+    "year": 2025,
+    "type": "Journal Article",
+    "selected": true,
+    "pdf": "",
+    "doi": "https://doi.org/10.0000/placeholder.2025.003"
+  },
+  {
+    "title": "Decoding Movement Intent from Multimodal Neural and Muscular Signals",
+    "authors": "G. Student, H. Researcher, and Your Name",
+    "venue": "International Conference on Rehabilitation Robotics",
+    "year": 2024,
+    "type": "Conference Paper",
+    "selected": true,
+    "pdf": "",
+    "doi": "https://doi.org/10.0000/placeholder.2024.004"
+  },
+  {
+    "title": "Transparent Assistance Strategies for Wearable Rehabilitation Robots",
+    "authors": "Your Name and I. Collaborator",
+    "venue": "Frontiers in Robotics and AI",
+    "year": 2023,
+    "type": "Review Article",
+    "selected": false,
+    "pdf": "",
+    "doi": "https://doi.org/10.0000/placeholder.2023.005"
+  }
+]

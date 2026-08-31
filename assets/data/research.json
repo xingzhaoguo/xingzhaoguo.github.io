@@ -1,0 +1,37 @@
+[
+  {
+    "number": "01",
+    "title": "Rehabilitation Robotics",
+    "summary": "Robotic systems that support motor relearning through safe, measurable, and personalized physical interaction.",
+    "questions": "How can assistance adapt to an individual's recovery state without reducing active participation?",
+    "methods": ["Human-in-the-loop control", "Wearable sensing", "Clinical evaluation"]
+  },
+  {
+    "number": "02",
+    "title": "Human-Robot Interaction",
+    "summary": "Intuitive interaction strategies that make assistive robots transparent, predictable, and responsive to human intent.",
+    "questions": "Which cues best communicate robot behavior and build trust during close physical collaboration?",
+    "methods": ["Shared control", "Intent estimation", "User studies"]
+  },
+  {
+    "number": "03",
+    "title": "Biomechanics",
+    "summary": "Quantitative analysis of human movement to connect robotic assistance with meaningful functional outcomes.",
+    "questions": "Which biomechanical markers reveal compensation, recovery, and efficient movement?",
+    "methods": ["Motion analysis", "Musculoskeletal modeling", "Signal processing"]
+  },
+  {
+    "number": "04",
+    "title": "Variable Stiffness Mechanisms",
+    "summary": "Mechanisms and control methods that tune physical compliance for both performance and intrinsic safety.",
+    "questions": "How can compact mechanisms provide a useful stiffness range without adding excessive mass?",
+    "methods": ["Mechanism design", "Prototyping", "Experimental validation"]
+  },
+  {
+    "number": "05",
+    "title": "Brain-Computer Interface",
+    "summary": "Neural and muscular interfaces that translate movement intent into robust commands for assistive devices.",
+    "questions": "How can multimodal signals remain reliable across users, sessions, and changing physical conditions?",
+    "methods": ["EEG / EMG", "Representation learning", "Sensor fusion"]
+  }
+]

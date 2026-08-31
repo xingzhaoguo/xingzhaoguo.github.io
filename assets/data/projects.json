@@ -1,0 +1,44 @@
+[
+  {
+    "id": "adaptive-rehabilitation-robot",
+    "title": "Adaptive Rehabilitation Robot",
+    "summary": "A human-in-the-loop robotic platform that adapts assistance to each user's changing movement capability.",
+    "image": "assets/images/projects/project-adaptive.svg",
+    "image_alt": "Abstract placeholder for an adaptive rehabilitation robotics project",
+    "period": "2024–Present",
+    "status": "Ongoing",
+    "overview": "This project studies how a rehabilitation robot can continuously adjust assistance as a user practices movement. The platform combines biomechanical sensing, interpretable adaptation, and therapist-informed constraints.",
+    "challenge": "Recovery is highly individual and changes from session to session. A useful robot must provide enough support to enable practice while preserving the user's active contribution.",
+    "approach": "We combine real-time movement features with human-in-the-loop control and structured evaluation protocols. The current placeholder can later be replaced with specific hardware, algorithms, datasets, and study details.",
+    "outcomes": ["Adaptive assistance controller", "Instrumented rehabilitation prototype", "Human-subject evaluation protocol"],
+    "featured": true
+  },
+  {
+    "id": "variable-stiffness-exosuit",
+    "title": "Variable-Stiffness Exosuit",
+    "summary": "A lightweight wearable system exploring tunable compliance for safe and efficient physical assistance.",
+    "image": "assets/images/projects/project-stiffness.svg",
+    "image_alt": "Abstract placeholder for a variable-stiffness exosuit project",
+    "period": "2023–Present",
+    "status": "Ongoing",
+    "overview": "This project explores a lightweight assistive exosuit whose mechanical compliance can be tuned to different activities and users.",
+    "challenge": "Wearable robots need to deliver meaningful assistance without becoming heavy, restrictive, or uncomfortable during natural movement.",
+    "approach": "We develop compact variable-stiffness mechanisms, characterize their mechanical behavior, and integrate them with wearable structures and low-level control.",
+    "outcomes": ["Compact stiffness-tuning mechanism", "Wearable prototype", "Bench and motion experiments"],
+    "featured": true
+  },
+  {
+    "id": "neural-intent-interface",
+    "title": "Neural Intent Interface",
+    "summary": "Multimodal sensing and learning methods for translating neural and biomechanical signals into assistive control.",
+    "image": "assets/images/projects/project-neural.svg",
+    "image_alt": "Abstract placeholder for a neural intent interface project",
+    "period": "2022–2025",
+    "status": "Completed",
+    "overview": "This project investigates how neural, muscular, and biomechanical signals can be fused to infer movement intent for assistive robotic control.",
+    "challenge": "Physiological signals are noisy and vary across users, sessions, and physical conditions, making robust real-time decoding difficult.",
+    "approach": "We compare interpretable signal features and learning-based representations, then evaluate how reliably they support closed-loop interaction.",
+    "outcomes": ["Multimodal sensing pipeline", "Intent decoding benchmark", "Closed-loop interface demonstration"],
+    "featured": true
+  }
+]

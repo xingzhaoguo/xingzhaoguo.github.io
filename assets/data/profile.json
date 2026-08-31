@@ -1,0 +1,23 @@
+{
+  "name": "Your Name",
+  "title": "Associate Professor",
+  "department": "Department / School",
+  "institution": "University Name",
+  "location": "City, Country",
+  "tagline": "Designing human-centered robotic systems that make rehabilitation more adaptive, intuitive, and effective.",
+  "biography": "I am a faculty member working at the intersection of robotics, biomechanics, and human movement science. My group develops wearable and rehabilitation technologies that combine principled mechanical design with intelligent, human-centered control. This placeholder biography is intentionally concise and can be replaced with your own academic background, current appointments, and long-term research vision.",
+  "email": "your.name@university.edu",
+  "photo": "assets/images/profile/profile-placeholder.svg",
+  "links": {
+    "google_scholar": "https://scholar.google.com/",
+    "orcid": "https://orcid.org/0000-0000-0000-0000",
+    "github": "https://github.com/xingzhaoguo"
+  },
+  "research_interests": [
+    "Rehabilitation Robotics",
+    "Human-Robot Interaction",
+    "Biomechanics",
+    "Variable Stiffness Mechanisms",
+    "Brain-Computer Interface"
+  ]
+}
