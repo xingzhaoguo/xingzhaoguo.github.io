@@ -15,7 +15,7 @@
 
   const ui = isChinese ? {
     nav: [['home', '首页', ''], ['research', '研究方向', 'research/'], ['publications', '论文成果', 'publications/'], ['projects', '科研项目', 'projects/'], ['teaching', '教学指导', 'teaching/'], ['news', '学术动态', 'news/'], ['contact', '联系方式', 'contact/']],
-    homeLabel: '郭兴召学术主页', toggleNavigation: '展开或收起导航', primaryNavigation: '主导航',
+    homeLabel: '郭兴召 Guo Xingzhao', toggleNavigation: '展开或收起导航', primaryNavigation: '主导航',
     email: '邮箱', team: '团队', cv: '个人履历', built: '基于 GitHub Pages 构建',
     viewProject: '查看项目', researchProject: '科研项目', guidingQuestion: '核心问题', profilePhoto: '个人照片', pdfHint: '在 publications.json 中添加 PDF 路径',
     project: '科研项目', projectNotFound: '未找到该项目', backProjects: '返回项目列表', allProjects: '全部项目',
@@ -24,7 +24,7 @@
     cvDownload: '下载 PDF 简历 ↓', dataError: '网站内容加载失败。请通过网页服务器访问本站，不要直接打开 HTML 文件。'
   } : {
     nav: [['home', 'Home', ''], ['research', 'Research', 'research/'], ['publications', 'Publications', 'publications/'], ['projects', 'Projects', 'projects/'], ['teaching', 'Teaching', 'teaching/'], ['news', 'News', 'news/'], ['contact', 'Contact', 'contact/']],
-    homeLabel: 'Academic homepage of Xingzhao Guo', toggleNavigation: 'Toggle navigation', primaryNavigation: 'Primary navigation',
+    homeLabel: '郭兴召 Guo Xingzhao', toggleNavigation: 'Toggle navigation', primaryNavigation: 'Primary navigation',
     email: 'Email', team: 'Team', cv: 'CV', built: 'Built for GitHub Pages',
     viewProject: 'View Project', researchProject: 'Research project', guidingQuestion: 'Guiding question', profilePhoto: 'Profile photo of', pdfHint: 'Add a PDF path in publications.json',
     project: 'Project', projectNotFound: 'Project not found', backProjects: 'Back to projects', allProjects: 'All projects',
@@ -71,8 +71,8 @@
     header.innerHTML = `
       <div class="nav-shell">
         <a class="site-mark" href="${localizedPath('')}" aria-label="${ui.homeLabel}">
-          <span class="site-mark-monogram" aria-hidden="true">YN</span>
-          <span class="site-mark-text">Xingzhao Guo</span>
+          <span class="site-mark-monogram" aria-hidden="true">GX</span>
+          <span class="site-mark-text">郭兴召 <span lang="en">Guo Xingzhao</span></span>
         </a>
         <div class="nav-actions">
           <nav class="primary-nav" id="primary-navigation" aria-label="${ui.primaryNavigation}">${links}</nav>
@@ -98,20 +98,20 @@
     if (!footer) return;
     const year = new Date().getFullYear();
     const academicLinks = [
-      `<a href="mailto:${profile.email}">${ui.email}</a>`,
+      `<a href="mailto:${profile.email}">Email</a>`,
       profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}>GitHub</a>` : '',
       profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
-      `<a href="${localizedPath('team/')}">${ui.team}</a>`,
-      `<a href="${localizedPath('cv/')}">${ui.cv}</a>`
+      `<a href="${localizedPath('team/')}">Team</a>`,
+      `<a href="${localizedPath('cv/')}">CV</a>`
     ].filter(Boolean).join('');
     footer.innerHTML = `
       <div class="footer-shell">
         <div>
-          <p class="footer-name">${profile.name}</p>
-          <p>${profile.title} · ${profile.institution}</p>
+          <p class="footer-name">Guo Xingzhao</p>
+          <p>School of Mechanical and Power Engineering · Zhengzhou University</p>
         </div>
         <div class="footer-links">${academicLinks}</div>
-        <p class="copyright">© ${year} ${profile.name}. ${ui.built}.</p>
+        <p class="copyright">© ${year} Guo Xingzhao. Built for GitHub Pages.</p>
       </div>`;
   }
 
@@ -179,11 +179,10 @@
     document.querySelector('[data-profile-name]').innerHTML = `${profile.name}${profile.name_zh ? `<small>${profile.name_zh}</small>` : ''}`;
     document.querySelector('[data-profile-role]').textContent = `${profile.title} · ${profile.department}`;
     document.querySelector('[data-profile-affiliation]').textContent = profile.institution;
-    document.querySelector('[data-profile-statement]').textContent = profile.tagline;
+    document.querySelector('[data-profile-biography]').textContent = profile.biography;
     document.querySelector('[data-profile-photo]').src = assetUrl(profile.photo);
     document.querySelector('[data-profile-photo]').alt = `${ui.profilePhoto}${isChinese ? '：' : ' '}${profile.name}`;
     document.querySelector('[data-profile-links]').innerHTML = profileLinks(profile);
-    document.querySelector('[data-biography]').innerHTML = `<p>${profile.biography}</p>`;
     const backgroundItem = (item) => `
       <article class="background-item">
         <time>${item.period}</time>
@@ -314,11 +313,6 @@
     try {
       const profile = await loadJson('assets/data/profile.json');
       renderFooter(profile);
-      const monogram = profile.name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase();
-      const mark = document.querySelector('.site-mark-monogram');
-      if (mark && monogram) mark.textContent = monogram;
-      const markText = document.querySelector('.site-mark-text');
-      if (markText) markText.textContent = profile.name;
       const page = document.body.dataset.page;
       if (page === 'home') await renderHome(profile);
       if (page === 'research') await renderResearch();

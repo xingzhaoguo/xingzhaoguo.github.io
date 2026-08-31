@@ -56,8 +56,7 @@
 - `department`：院系
 - `institution`：单位
 - `location`：所在地
-- `tagline`：一句话研究简介
-- `biography`：简短个人学术简介
+- `biography`：首页姓名和单位下方的个人学术简介
 - `email`：邮箱
 - `links`：Google Scholar、ORCID 和 GitHub 地址
 - `research_interests`：首页研究方向标签

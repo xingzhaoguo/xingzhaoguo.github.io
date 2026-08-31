@@ -70,7 +70,8 @@ h3 { line-height: 1.35; }
 .eyebrow { margin-bottom: 0.75rem; color: var(--accent); font-size: 0.73rem; font-weight: 750; letter-spacing: 0.16em; text-transform: uppercase; }
 .profile-role { margin-bottom: 0.25rem; color: var(--ink); font-size: clamp(1.08rem, 2vw, 1.28rem); font-weight: 650; }
 .profile-affiliation { color: var(--ink-soft); }
-.profile-statement { max-width: 680px; margin: 2rem 0; color: #33403b; font-family: var(--font-serif); font-size: clamp(1.25rem, 2.4vw, 1.65rem); line-height: 1.5; }
+.profile-biography { max-width: 760px; margin: 1.75rem 0; color: #33403b; font-size: clamp(1rem, 1.35vw, 1.13rem); line-height: 1.85; }
+html:lang(zh-CN) .profile-biography { text-align: justify; text-justify: inter-ideograph; }
 .profile-links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .profile-links a { padding: 0.48rem 0.8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--accent-dark); text-decoration: none; font-size: 0.88rem; font-weight: 650; transition: border-color 160ms ease, transform 160ms ease; }
 .profile-links a:hover { border-color: var(--accent); transform: translateY(-2px); }

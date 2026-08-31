@@ -34,7 +34,7 @@
 | 网站区域 | 中文文件 | 英文文件 | 关键字段或说明 |
 | --- | --- | --- | --- |
 | 姓名、身份、单位、简介、邮箱 | `assets/data/zh/profile.json` | `assets/data/profile.json` | `name`、`title`、`department`、`institution`、`biography`、`email` |
-| 首页一句话简介 | 同上 | 同上 | `tagline` |
+| 首页个人简介 | 同上 | 同上 | `biography`，显示在姓名、身份和单位下方 |
 | 首页研究方向 | 同上 | 同上 | `research_interests`，数组中的每一项是一张方向卡片 |
 | 首页教育背景与工作经历 | `assets/data/zh/cv.json` | `assets/data/cv.json` | `education` 和 `appointments` |
 | Research 页面 | `assets/data/zh/research.json` | `assets/data/research.json` | 每项包含 `title`、`summary`、`questions`、`methods` |
@@ -64,7 +64,6 @@
   "department": "机械与动力工程学院",
   "institution": "郑州大学",
   "location": "中国 · 河南郑州",
-  "tagline": "面向康复需求，开展康复机器人、机器人智能控制与生物力学分析研究。",
   "biography": "个人学术简介……",
   "email": "邮箱地址",
   "photo": "assets/images/profile/xingzhao-guo.webp"
