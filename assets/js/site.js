@@ -16,7 +16,7 @@
   const ui = isChinese ? {
     nav: [['home', '首页', ''], ['projects', '科研工作', 'projects/'], ['publications', '研究成果', 'publications/'], ['teaching', '教学指导', 'teaching/'], ['news', '学术动态', 'news/'], ['contact', '联系方式', 'contact/']],
     homeLabel: '郭兴召 Guo Xingzhao', toggleNavigation: '展开或收起导航', primaryNavigation: '主导航',
-    email: '邮箱', built: '基于 GitHub Pages 构建',
+    email: '邮箱', built: '基于 GitHub Pages 构建', todayVisits: '今日浏览', totalVisits: '总浏览量', counterLoading: '加载中…', counterLiveOnly: '正式上线后显示',
     viewProject: '查看项目', researchProject: '科研项目', guidingQuestion: '核心问题', profilePhoto: '个人照片', doiPending: 'DOI 待更新',
     project: '科研项目', projectNotFound: '未找到该项目', backProjects: '返回项目列表', allProjects: '全部项目',
     status: '状态', period: '时间', funding: '项目来源', overview: '项目概述', challenge: '研究问题', approach: '研究方法', outcomes: '预期成果',
@@ -24,7 +24,7 @@
   } : {
     nav: [['home', 'Home', ''], ['projects', 'Research Work', 'projects/'], ['publications', 'Research Outputs', 'publications/'], ['teaching', 'Teaching', 'teaching/'], ['news', 'News', 'news/'], ['contact', 'Contact', 'contact/']],
     homeLabel: '郭兴召 Guo Xingzhao', toggleNavigation: 'Toggle navigation', primaryNavigation: 'Primary navigation',
-    email: 'Email', built: 'Built for GitHub Pages',
+    email: 'Email', built: 'Built for GitHub Pages', todayVisits: 'Today', totalVisits: 'Total visits', counterLoading: 'Loading…', counterLiveOnly: 'Available on the live site',
     viewProject: 'View Project', researchProject: 'Research project', guidingQuestion: 'Guiding question', profilePhoto: 'Profile photo of', doiPending: 'DOI pending',
     project: 'Project', projectNotFound: 'Project not found', backProjects: 'Back to projects', allProjects: 'All projects',
     status: 'Status', period: 'Period', funding: 'Funding', overview: 'Overview', challenge: 'Research challenge', approach: 'Approach', outcomes: 'Expected outcomes',
@@ -101,6 +101,7 @@
       profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
       profile.links.researchgate ? `<a href="${profile.links.researchgate}" ${externalAttrs}>ResearchGate</a>` : ''
     ].filter(Boolean).join('');
+    const isLocalPreview = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
     footer.innerHTML = `
       <div class="footer-shell">
         <div>
@@ -108,8 +109,23 @@
           <p>School of Mechanical and Power Engineering · Zhengzhou University</p>
         </div>
         <div class="footer-links">${academicLinks}</div>
-        <p class="copyright">© ${year} Guo Xingzhao. Built for GitHub Pages.</p>
+        <div class="footer-meta">
+          <p class="copyright">© ${year} Guo Xingzhao. Built for GitHub Pages.</p>
+          <p class="visit-counter">
+            <span class="visit-count"><span class="visit-count-label">${ui.todayVisits}</span>：<span id="busuanzi_today_pv" aria-live="polite">${isLocalPreview ? ui.counterLiveOnly : ui.counterLoading}</span></span>
+            <span class="visit-count-separator" aria-hidden="true">·</span>
+            <span class="visit-count"><span class="visit-count-label">${ui.totalVisits}</span>：<span id="busuanzi_site_pv" aria-live="polite">${isLocalPreview ? ui.counterLiveOnly : ui.counterLoading}</span></span>
+          </p>
+        </div>
       </div>`;
+
+    if (!isLocalPreview && !document.querySelector('script[data-visitor-counter]')) {
+      const counterScript = document.createElement('script');
+      counterScript.src = 'https://cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js';
+      counterScript.defer = true;
+      counterScript.dataset.visitorCounter = '';
+      document.head.append(counterScript);
+    }
   }
 
   function profileLinks(profile) {
