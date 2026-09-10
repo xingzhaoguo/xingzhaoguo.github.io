@@ -1,8 +1,21 @@
 [
-  {"date": "2026-01-01", "display_date": "2026", "title": "获批国家自然科学基金青年科学基金项目（C 类），项目编号 52505044。", "url": ""},
-  {"date": "2026-01-01", "display_date": "2026", "title": "多自由度串并联动态颈椎牵引机器人研究论文被 IEEE CASE 2026 录用。", "url": ""},
-  {"date": "2025-11-01", "display_date": "2025", "title": "脊髓损伤患者躯干控制能力机器人评估研究发表于 IEEE Transactions on Biomedical Engineering。", "url": ""},
-  {"date": "2025-06-01", "display_date": "2025", "title": "指导的康复机器人学生团队获中国机器人大赛暨 RoboCup 中国赛、iCAN 大学生创新创业大赛国家级二等奖。", "url": ""},
-  {"date": "2025-05-01", "display_date": "2025", "title": "躯干康复机器人已完成超过 50 例患者临床实验，并获 CCTV-1《晚间新闻》报道。", "url": ""},
-  {"date": "2025-04-01", "display_date": "2025", "title": "指导的 4 篇本科毕业论文获评郑州大学校级优秀毕业论文。", "url": ""}
+  {"date": "2026-08-27", "display_date": "2026年8月", "title": "指导学生参加2026年中国大学生机械工程创新创意大赛-中国大学生智能装备创新设计大赛，获国家一等奖2项、国家二等奖1项。", "url": ""},
+  {"date": "2026-08-23", "display_date": "2026年8月", "title": "指导学生参加2026年中国大学生机械工程创新创意大赛-“明石杯”微纳传感技术与智能应用赛，获国家一等奖1项、国家二等奖1项。", "url": ""},
+  {"date": "2026-08-18", "display_date": "2026年8月", "title": "指导学生参加The 2nd International Young Leaders Forum 2026（IYLF 2026），以“A Modular Multi-DOF Planar Upper-Limb Rehabilitation Robot”进行海报展示，并获Best Poster Award Runner-up。", "url": ""},
+  {"date": "2026-08-04", "display_date": "2026年8月", "title": "指导学生参加第十九届先进机器人及仿真技术大赛，获国家一等奖1项、国家二等奖1项。", "url": ""},
+  {"date": "2026-07-30", "display_date": "2026年7月", "title": "指导学生参加第七届中国机器人学术年会，以“基于模块化设计的多自由度平面上肢康复机器人”为题进行海报展示。", "url": ""},
+  {"date": "2026-07-01", "display_date": "2026年7月", "title": "指导学生参加全国三维数字化创新设计大赛18周年精英联赛，获国家二等奖。", "url": ""},
+  {"date": "2026-06-01", "display_date": "2026年6月", "title": "指导学生获批大学生创新创业训练计划项目6项，其中国家级1项、省级1项、校级4项。", "url": ""},
+  {"date": "2026-05-31", "display_date": "2026年5月", "title": "指导本科毕业论文中有3篇获评郑州大学优秀本科毕业论文（设计），其中1项获本科生毕业论文（设计）“人工智能+”专项“揭榜挂帅”项目优秀奖。", "url": ""},
+  {"date": "2026-05-30", "display_date": "2026年5月", "title": "论文“Development of a Multi-DOF Robot Based on Serial–Parallel Mechanism for Dynamic Cervical Traction”被IEEE CASE 2026录用。", "url": ""},
+  {"date": "2026-05-13", "display_date": "2026年5月", "title": "指导学生参加2026中国机器人大赛暨RoboCup机器人世界杯中国赛，获国家二等奖。", "url": ""},
+  {"date": "2026-05-01", "display_date": "2026年5月", "title": "指导学生参加2026年“挑战杯”河南省大学生创业计划竞赛，获省级金奖。", "url": ""},
+  {"date": "2025-12-31", "display_date": "2025年12月", "title": "获批河南省青年人才托举工程项目“基于刚柔耦合驱动的康复机器人关键技术研究”。", "url": ""},
+  {"date": "2025-12-02", "display_date": "2025年12月", "title": "获批河南省重点研发专项项目“融合脑机接口技术的手功能康复机器人开发”，担任项目骨干。", "url": ""},
+  {"date": "2025-12-01", "display_date": "2025年12月", "title": "获批河南省博士后科研项目“面向腰椎间盘突出主动康复的机器人关键技术研究”。", "url": ""},
+  {"date": "2025-11-30", "display_date": "2025年11月", "title": "指导学生参加第十九届iCAN大学生创新创业大赛，获国家二等奖。", "url": ""},
+  {"date": "2025-11-01", "display_date": "2025年11月", "title": "论文“Evaluating Trunk Control Ability in Patients With Spinal Cord Injury via a Robotic Brace”发表于IEEE Transactions on Biomedical Engineering。", "url": ""},
+  {"date": "2025-08-01", "display_date": "2025年8月", "title": "获批国家自然科学基金青年科学基金项目（C类）“躯干康复机器人高相容变刚度设计与控制研究”。", "url": ""},
+  {"date": "2025-06-02", "display_date": "2025年6月", "title": "获批上海市穿戴机器人与人机交互重点实验室开放课题“变刚度康复机器人相容性设计与控制研究”。", "url": ""},
+  {"date": "2025-06-01", "display_date": "2025年6月", "title": "指导的本科毕业论文“基于柔性压力传感器的躯干运动意图识别研究”获评郑州大学优秀本科毕业论文（设计）。", "url": ""}
 ]

@@ -1,0 +1,33 @@
+[
+  {
+    "category": "Patents",
+    "count": "15 items",
+    "kind": "patent",
+    "items": [
+      { "title": "Variable-stiffness multi-DOF upper-limb rehabilitation device", "authors": "Xingzhao Guo; Jianshe Gao; Yingze Qin; Yerong Chen; Xiaobo Rao; Aoyu Duan; Shunliang Ding; Jie Wang; Zheng Tao", "date": "2025-09-23", "country": "China", "number": "CN202511029814.2" },
+      { "title": "Reconfigurable multi-form upper-limb rehabilitation device", "authors": "Xingzhao Guo; Yingze Qin; Aoyu Duan; Jianshe Gao; Xiaobo Rao; Yawei Han; Zihang Xu; Mengna Yu; Yixuan Zheng; Yerong Chen", "date": "2025-11-27", "country": "China", "number": "CN202511755855.X" },
+      { "title": "Semi-active variable-stiffness spinal assistance exoskeleton device", "authors": "Xingzhao Guo; Zihang Xu; Yibo Wang; Jianshe Gao; Yize Wu; Zheng Tao; Jie Wang; Yingze Qin; Aoyu Duan; Mengna Yu", "date": "2026-01-04", "country": "China", "number": "CN202610001615.9" },
+      { "title": "Multi-DOF neck rehabilitation device with a safety protection mechanism", "authors": "Xingzhao Guo; Yibo Wang; Guangyu Wu; Zheng Tao; Tengfei Liu; Jianshe Gao; Zhijun Li; Feiyu Li; Haisheng Xia; Mengna Yu; Yingze Qin; Aoyu Duan", "date": "2026-02-12", "country": "China", "number": "CN202610203826.0" },
+      { "title": "Modular shoulder–elbow exoskeleton rehabilitation device", "authors": "Xingzhao Guo; Yuhang Li; Jiazhi Zhou; Chenhao Tang; Yingze Qin; Aoyu Duan", "date": "2026-04-07", "country": "China", "number": "CN202620450421.2" },
+      { "title": "Multi-DOF rehabilitation device for trunk balance training", "authors": "Xingzhao Guo; Chenwei Li; Guangyu Wu; Jianshe Gao; Tongwang Yang; Zhijun Li; Feiyu Li; Haisheng Xia; Aoyu Duan; Yingze Qin; Zihang Xu; Mengna Yu", "date": "2026-02-12", "country": "China", "number": "CN202610203720.0" },
+      { "title": "Intelligent electric actuator with internally integrated sensors", "authors": "Zhihao Zhou; Qining Wang; Xingzhao Guo; Ming Xu; Guangshuai Zhang", "date": "2024-05-31", "country": "China", "number": "CN202210480965.X", "granted": true },
+      { "title": "Intelligent human spinal rehabilitation training equipment", "authors": "Zhihao Zhou; Qining Wang; Xingzhao Guo; Guangshuai Zhang; Yalei Zhou", "date": "2022-12-02", "country": "China", "number": "CN202111562241.1", "granted": true },
+      { "title": "Rehabilitation equipment for gait rehabilitation therapy and assistance", "authors": "Qining Wang; Zhihao Zhou; Xingzhao Guo; Yalei Zhou", "date": "2022-06-14", "country": "China", "number": "CN202110355185.8", "granted": true },
+      { "title": "Differential-pressure-free online leak-sealing device for underwater vertical pipelines", "authors": "Zhuo Wang; Xingzhao Guo; Bo Zhang; Tao Wang; Hongxing Dang; Qiaoyue Di; Yu Cheng; Yin Chen", "date": "2021-04-30", "country": "China", "number": "CN201911191979.4", "granted": true },
+      { "title": "Method, system, and computer-readable storage medium for identifying parameters of an EMG-driven musculoskeletal model across speed–load conditions", "authors": "Jie Wang; Yu Wang; Jianshe Gao; Xiaobo Rao; Xingzhao Guo; Chao Ma; Peng Zhu; Jianqiu Li; Xiangyuan Liu", "date": "2026-05-29", "country": "China", "number": "CN202610765780.1" },
+      { "title": "Self-adaptive locking device for the knee joint of a biped robot", "authors": "Jianshe Gao; Yumeng Bao; Xiaobo Rao; Xingzhao Guo; Shunliang Ding; Huihui Zhang", "date": "2025-09-08", "country": "China", "number": "CN202511269754.1" },
+      { "title": "Release device for a biped passive walking robot", "authors": "Jianshe Gao; Ziyi Zheng; Xingzhao Guo; Xiaobo Rao; Shunliang Ding", "date": "2025-06-27", "country": "China", "number": "CN202510877854.6" },
+      { "title": "Double-joint knee-foot passive walking robot and knee-joint locking and unlocking method", "authors": "Xiaobo Rao; Jianshe Gao; Junfeng Cui; Xingzhao Guo; Shunliang Ding", "date": "2025-06-24", "country": "China", "number": "CN202510850288.X" },
+      { "title": "Power allocation method and system in dual-motor master–slave control", "authors": "Jie Wang; Pengyu Yang; Jianshe Gao; Fanhao Meng; Xiaobo Rao; Shunliang Ding; Xingzhao Guo", "date": "2025-05-21", "country": "China", "number": "CN202510658070.4" }
+    ]
+  },
+  {
+    "category": "Software Copyrights",
+    "count": "2 items",
+    "kind": "software",
+    "items": [
+      { "title": "External Fixation System Operation Software [ROBOBDSYS] V1.0", "type": "Computer software copyright", "registration_number": "2022SR1525315", "date": "2022-11-17" },
+      { "title": "Upper-Limb Rehabilitation System Operation Software [Zhixing Heyi] V1.0", "type": "Computer software copyright", "registration_number": "2026SR0630658", "date": "2026-05-29" }
+    ]
+  }
+]

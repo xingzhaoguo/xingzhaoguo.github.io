@@ -1,12 +1,11 @@
 [
   {
     "title": "Development of a Multi-DOF Robot Based on Serial–Parallel Mechanism for Dynamic Cervical Traction",
-    "authors": "Zheng Tao 等，郭兴召（通讯作者）",
+    "authors": "Zheng Tao, Tengfei Liu, Mengna Yu, Jianshe Gao, Jie Wang, Xingzhao Guo（通讯作者）",
     "venue": "IEEE International Conference on Automation Science and Engineering (CASE)",
     "year": 2026,
     "type": "会议论文 · 已录用",
     "selected": true,
-    "pdf": "",
     "doi": ""
   },
   {
@@ -16,8 +15,7 @@
     "year": 2025,
     "type": "期刊论文",
     "selected": true,
-    "pdf": "",
-    "doi": ""
+    "doi": "https://doi.org/10.1109/TBME.2025.3565790"
   },
   {
     "title": "Novel Patterns in Discrete Ikeda Map: Quint Points and Complex Non-quantum Chirality",
@@ -26,8 +24,16 @@
     "year": 2025,
     "type": "期刊论文",
     "selected": false,
-    "pdf": "",
-    "doi": ""
+    "doi": "https://doi.org/10.1063/5.0233735"
+  },
+  {
+    "title": "基于循证医学证据的脊髓损伤患者躯干控制障碍康复评定和康复治疗专家共识",
+    "authors": "王宁华，顾新，周谋望，谢欲晓，潘钰，黄真，公维军，王启宁，王荣丽，李雪迎，刘若琳，江山，刘小燮，甄巧霞，周志浩，施杰洪，刘芷忻，郭兴召",
+    "venue": "《中国康复医学杂志》, 39(3), 305–311",
+    "year": 2024,
+    "type": "专家共识",
+    "selected": false,
+    "doi": "https://doi.org/10.3969/j.issn.1001-1242.2024.03.001"
   },
   {
     "title": "Multi-objective Optimization and Performance Analysis of 3-RPR Parallel Mechanism in Robotic Brace",
@@ -36,8 +42,25 @@
     "year": 2023,
     "type": "期刊论文",
     "selected": true,
-    "pdf": "",
-    "doi": ""
+    "doi": "https://doi.org/10.1016/j.mechatronics.2023.103055"
+  },
+  {
+    "title": "Robotic Brace Based Multi-Dimensional Assessment for Trunk Ability: A Preliminary Study in Patients with Spinal Cord Injury",
+    "authors": "Xingzhao Guo, Zhihao Zhou, and Qining Wang",
+    "venue": "2023 International Conference on Rehabilitation Robotics (ICORR), 1–6",
+    "year": 2023,
+    "type": "会议论文",
+    "selected": false,
+    "doi": "https://doi.org/10.1109/ICORR58425.2023.10304681"
+  },
+  {
+    "title": "动态脊柱支撑机器人评测脊髓损伤患者坐位躯干控制的信度与效度研究",
+    "authors": "施杰洪，王荣丽，王宁华，郭兴召，周志浩，王启宁",
+    "venue": "《中国康复医学杂志》, 38(12), 1643–1650",
+    "year": 2023,
+    "type": "期刊论文",
+    "selected": false,
+    "doi": "https://doi.org/10.3969/j.issn.1001-1242.2023.12.002"
   },
   {
     "title": "Serial–Parallel Mechanism and Controller Design of a Robotic Brace for Dynamic Trunk Support",
@@ -46,8 +69,7 @@
     "year": 2022,
     "type": "期刊论文",
     "selected": true,
-    "pdf": "",
-    "doi": ""
+    "doi": "https://doi.org/10.1109/TMECH.2022.3155931"
   },
   {
     "title": "Admittance Control of Wearable Robotic Brace for Dynamic Trunk Support",
@@ -56,7 +78,15 @@
     "year": 2022,
     "type": "会议论文",
     "selected": false,
-    "pdf": "",
-    "doi": ""
+    "doi": "https://doi.org/10.1109/BIOROB52689.2022.9925355"
+  },
+  {
+    "title": "Kinematic and Kinetic Analysis of 3-RPR Based Robotic Lumbar Brace",
+    "authors": "Xingzhao Guo, Zhihao Zhou, Jingeng Mai, and Qining Wang",
+    "venue": "2020 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM), 1828–1833",
+    "year": 2020,
+    "type": "会议论文",
+    "selected": false,
+    "doi": "https://doi.org/10.1109/AIM43001.2020.9158807"
   }
 ]

@@ -14,23 +14,21 @@
   const isChinese = language === 'zh';
 
   const ui = isChinese ? {
-    nav: [['home', '首页', ''], ['research', '研究方向', 'research/'], ['publications', '论文成果', 'publications/'], ['projects', '科研项目', 'projects/'], ['teaching', '教学指导', 'teaching/'], ['news', '学术动态', 'news/'], ['contact', '联系方式', 'contact/']],
+    nav: [['home', '首页', ''], ['projects', '科研工作', 'projects/'], ['publications', '研究成果', 'publications/'], ['teaching', '教学指导', 'teaching/'], ['news', '学术动态', 'news/'], ['contact', '联系方式', 'contact/']],
     homeLabel: '郭兴召 Guo Xingzhao', toggleNavigation: '展开或收起导航', primaryNavigation: '主导航',
-    email: '邮箱', team: '团队', cv: '个人履历', built: '基于 GitHub Pages 构建',
-    viewProject: '查看项目', researchProject: '科研项目', guidingQuestion: '核心问题', profilePhoto: '个人照片', pdfHint: '在 publications.json 中添加 PDF 路径',
+    email: '邮箱', built: '基于 GitHub Pages 构建',
+    viewProject: '查看项目', researchProject: '科研项目', guidingQuestion: '核心问题', profilePhoto: '个人照片', doiPending: 'DOI 待更新',
     project: '科研项目', projectNotFound: '未找到该项目', backProjects: '返回项目列表', allProjects: '全部项目',
     status: '状态', period: '时间', funding: '项目来源', overview: '项目概述', challenge: '研究问题', approach: '研究方法', outcomes: '预期成果',
-    coursesLink: '了解更多 →', resourcePlaceholder: '', cvLabels: { appointments: '工作经历', education: '教育背景', funding: '科研项目', outputs: '科研成果', honors: '荣誉奖励', service: '学术兼职' },
-    cvDownload: '下载 PDF 简历 ↓', dataError: '网站内容加载失败。请通过网页服务器访问本站，不要直接打开 HTML 文件。'
+    coursesLink: '了解更多 →', applicationNumber: '申请号', registrationNumber: '登记号', granted: '已授权', substantiveReview: '实质审查', firstAdvisor: '第一指导老师', undergraduate: '本科', resourcePlaceholder: '', dataError: '网站内容加载失败。请通过网页服务器访问本站，不要直接打开 HTML 文件。'
   } : {
-    nav: [['home', 'Home', ''], ['research', 'Research', 'research/'], ['publications', 'Publications', 'publications/'], ['projects', 'Projects', 'projects/'], ['teaching', 'Teaching', 'teaching/'], ['news', 'News', 'news/'], ['contact', 'Contact', 'contact/']],
+    nav: [['home', 'Home', ''], ['projects', 'Research Work', 'projects/'], ['publications', 'Research Outputs', 'publications/'], ['teaching', 'Teaching', 'teaching/'], ['news', 'News', 'news/'], ['contact', 'Contact', 'contact/']],
     homeLabel: '郭兴召 Guo Xingzhao', toggleNavigation: 'Toggle navigation', primaryNavigation: 'Primary navigation',
-    email: 'Email', team: 'Team', cv: 'CV', built: 'Built for GitHub Pages',
-    viewProject: 'View Project', researchProject: 'Research project', guidingQuestion: 'Guiding question', profilePhoto: 'Profile photo of', pdfHint: 'Add a PDF path in publications.json',
+    email: 'Email', built: 'Built for GitHub Pages',
+    viewProject: 'View Project', researchProject: 'Research project', guidingQuestion: 'Guiding question', profilePhoto: 'Profile photo of', doiPending: 'DOI pending',
     project: 'Project', projectNotFound: 'Project not found', backProjects: 'Back to projects', allProjects: 'All projects',
     status: 'Status', period: 'Period', funding: 'Funding', overview: 'Overview', challenge: 'Research challenge', approach: 'Approach', outcomes: 'Expected outcomes',
-    coursesLink: 'Learn more →', resourcePlaceholder: '', cvLabels: { appointments: 'Appointments', education: 'Education', funding: 'Research Funding', outputs: 'Research Outputs', honors: 'Honors & Awards', service: 'Professional Service' },
-    cvDownload: 'Download PDF CV ↓', dataError: 'Site content could not be loaded. Please serve the repository through a web server rather than opening index.html directly.'
+    coursesLink: 'Learn more →', applicationNumber: 'Application No.', registrationNumber: 'Registration No.', granted: 'Granted', substantiveReview: 'Substantive Examination', firstAdvisor: 'First Advisor', undergraduate: 'Undergraduate', resourcePlaceholder: '', dataError: 'Site content could not be loaded. Please serve the repository through a web server rather than opening index.html directly.'
   };
 
   const localizedPath = (path = '') => pathFor(`${isChinese ? '' : 'en/'}${path}`);
@@ -48,7 +46,7 @@
 
   async function loadJson(path) {
     const contentPath = localizedDataPath(path);
-    const response = await fetch(assetUrl(contentPath));
+    const response = await fetch(assetUrl(contentPath), { cache: 'no-store' });
     if (!response.ok) throw new Error(`Could not load ${path}`);
     return response.json();
   }
@@ -101,8 +99,7 @@
       `<a href="mailto:${profile.email}">Email</a>`,
       profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}>GitHub</a>` : '',
       profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
-      `<a href="${localizedPath('team/')}">Team</a>`,
-      `<a href="${localizedPath('cv/')}">CV</a>`
+      profile.links.researchgate ? `<a href="${profile.links.researchgate}" ${externalAttrs}>ResearchGate</a>` : ''
     ].filter(Boolean).join('');
     footer.innerHTML = `
       <div class="footer-shell">
@@ -119,6 +116,7 @@
     return [
       `<a href="mailto:${profile.email}">${ui.email}</a>`,
       profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}>Google Scholar</a>` : '',
+      profile.links.researchgate ? `<a href="${profile.links.researchgate}" ${externalAttrs}>ResearchGate</a>` : '',
       profile.links.orcid ? `<a href="${profile.links.orcid}" ${externalAttrs}>ORCID</a>` : '',
       profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}>GitHub</a>` : ''
     ].filter(Boolean).join('');
@@ -126,13 +124,16 @@
 
   function projectCard(project) {
     const projectUrl = project.has_detail === false ? '' : localizedPath(`projects/${project.id}/`);
+    const imageClasses = [
+      project.image_fit === 'contain' ? 'project-image-contain' : '',
+      project.image_position === 'left' ? 'project-image-left' : ''
+    ].filter(Boolean).join(' ');
+    const imageClass = imageClasses ? ` class="${imageClasses}"` : '';
     const image = projectUrl
-      ? `<a class="project-image-link" href="${projectUrl}" tabindex="-1" aria-hidden="true"><img src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></a>`
-      : `<div class="project-image-link"><img src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></div>`;
+      ? `<a class="project-image-link" href="${projectUrl}" tabindex="-1" aria-hidden="true"><img${imageClass} src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></a>`
+      : `<div class="project-image-link"><img${imageClass} src="${assetUrl(project.image)}" alt="" width="720" height="440" loading="lazy"></div>`;
     const title = projectUrl ? `<a href="${projectUrl}">${project.title}</a>` : project.title;
-    const action = projectUrl
-      ? `<a class="text-link" href="${projectUrl}">${ui.viewProject} <span aria-hidden="true">→</span></a>`
-      : `<span class="project-card-note">${project.funding || ui.researchProject}</span>`;
+    const action = '';
     return `
       <article class="project-card reveal">
         ${image}
@@ -145,19 +146,32 @@
       </article>`;
   }
 
+  function highlightSelf(value) {
+    return value.replace(/郭兴召|Xingzhao Guo|Guo Xingzhao/g, '<strong class="author-self">$&</strong>');
+  }
+
+  function selfAuthorPosition(item) {
+    if (!item.authors) return Number.POSITIVE_INFINITY;
+    const position = item.authors
+      .split(/[；;]/)
+      .map((author) => author.trim())
+      .findIndex((author) => /郭兴召|Xingzhao Guo|Guo Xingzhao/.test(author));
+    return position === -1 ? Number.POSITIVE_INFINITY : position;
+  }
+
   function publicationItem(item) {
-    const links = [
-      item.pdf ? `<a href="${assetUrl(item.pdf)}">PDF</a>` : `<span class="link-placeholder" title="${ui.pdfHint}">PDF</span>`,
-      item.doi ? `<a href="${item.doi}" ${externalAttrs}>DOI</a>` : ''
-    ].filter(Boolean).join('<span aria-hidden="true">·</span>');
+    const authors = highlightSelf(item.authors);
+    const doi = item.doi
+      ? `<a href="${item.doi}" ${externalAttrs}>DOI</a>`
+      : `<span class="link-placeholder">${ui.doiPending}</span>`;
     return `
       <li class="publication-item">
         <div class="publication-year">${item.year}</div>
         <div>
           <h3>${item.title}</h3>
-          <p class="publication-authors">${item.authors}</p>
+          <p class="publication-authors">${authors}</p>
           <p class="publication-venue"><em>${item.venue}</em> · ${item.type}</p>
-          <div class="publication-links">${links}</div>
+          <div class="publication-links">${doi}</div>
         </div>
       </li>`;
   }
@@ -190,11 +204,14 @@
       </article>`;
     document.querySelector('[data-home-education]').innerHTML = cv.education.map(backgroundItem).join('');
     document.querySelector('[data-home-experience]').innerHTML = cv.appointments.map(backgroundItem).join('');
-    document.querySelector('[data-interests]').innerHTML = profile.research_interests.map((interest, index) => `
-      <article class="interest-card reveal" style="--index: ${index}">
-        <span class="interest-number">0${index + 1}</span>
-        <h3>${interest}</h3>
-      </article>`).join('');
+    const interests = document.querySelector('[data-interests]');
+    if (interests) {
+      interests.innerHTML = profile.research_interests.map((interest, index) => `
+        <article class="interest-card reveal" style="--index: ${index}">
+          <span class="interest-number">0${index + 1}</span>
+          <h3>${interest}</h3>
+        </article>`).join('');
+    }
     document.querySelector('[data-featured-projects]').innerHTML = projects.filter((item) => item.featured).slice(0, 3).map(projectCard).join('');
     document.querySelector('[data-featured-publications]').innerHTML = publications.filter((item) => item.selected).slice(0, 4).map(publicationItem).join('');
     document.querySelector('[data-recent-news]').innerHTML = news.slice(0, 5).map(newsItem).join('');
@@ -214,7 +231,10 @@
   }
 
   async function renderPublications() {
-    const publications = await loadJson('assets/data/publications.json');
+    const [publications, intellectualProperty] = await Promise.all([
+      loadJson('assets/data/publications.json'),
+      loadJson('assets/data/intellectual-property.json')
+    ]);
     publications.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
     const years = [...new Set(publications.map((item) => item.year))];
     document.querySelector('[data-all-publications]').innerHTML = years.map((year) => `
@@ -222,11 +242,43 @@
         <h2 id="year-${year}">${year}</h2>
         <ol class="publication-list">${publications.filter((item) => item.year === year).map(publicationItem).join('')}</ol>
       </section>`).join('');
+    document.querySelector('[data-intellectual-property]').innerHTML = intellectualProperty.map((group) => {
+      const items = group.kind === 'patent'
+        ? group.items.map((item, index) => ({ item, index }))
+          .sort((a, b) => selfAuthorPosition(a.item) - selfAuthorPosition(b.item) || a.index - b.index)
+          .map(({ item }) => item)
+        : group.items;
+      return `<section class="ip-group">
+        <header class="ip-group-header"><h3>${group.category}</h3><span>${group.count}</span></header>
+        <ol class="ip-list">${items.map((item) => {
+          const authors = item.authors ? `<p class="ip-authors">${highlightSelf(item.authors)}</p>` : '';
+          const status = group.kind === 'patent'
+            ? `<span class="ip-status ${item.granted ? 'is-granted' : 'is-review'}">${item.granted ? ui.granted : ui.substantiveReview}</span>`
+            : '';
+          const metadata = group.kind === 'patent'
+            ? [`<time datetime="${item.date}">${item.date}</time>`, item.country, `${ui.applicationNumber}：${item.number}`]
+            : [item.type, `${ui.registrationNumber}：${item.registration_number}`, `<time datetime="${item.date}">${item.date}</time>`];
+          return `<li class="ip-item"><div><div class="ip-item-heading"><h4>${item.title}</h4>${status}</div>${authors}<p class="ip-meta">${metadata.map((value) => `<span>${value}</span>`).join('')}</p></div></li>`;
+        }).join('')}</ol>
+      </section>`;
+    }).join('');
   }
 
   async function renderProjects() {
     const projects = await loadJson('assets/data/projects.json');
-    document.querySelector('[data-all-projects]').innerHTML = projects.map(projectCard).join('');
+    const representativeProjects = projects.filter((project) => project.featured);
+    const researchProjects = projects
+      .filter((project) => !project.featured)
+      .sort((a, b) => (a.display_order ?? Number.MAX_SAFE_INTEGER) - (b.display_order ?? Number.MAX_SAFE_INTEGER));
+    document.querySelector('[data-representative-projects]').innerHTML = representativeProjects.map(projectCard).join('');
+    document.querySelector('[data-research-projects]').innerHTML = researchProjects.map((project) => `
+      <li class="ip-item">
+        <div>
+          <div class="ip-item-heading"><h4>${project.title}</h4></div>
+          <p class="ip-authors">${project.funding || ui.researchProject}</p>
+          <p class="ip-meta"><span>${project.period}</span><span>${project.status}</span></p>
+        </div>
+      </li>`).join('');
   }
 
   async function renderProjectDetail() {
@@ -243,54 +295,66 @@
         <img src="${assetUrl(project.image)}" alt="${project.image_alt}" width="720" height="440">
       </header>
       <section class="project-content section-shell section-rule">
-        <aside class="project-aside"><a class="text-link" href="${localizedPath('projects/')}"><span aria-hidden="true">←</span> ${ui.allProjects}</a><p class="detail-label">${ui.status}</p><p>${project.status}</p><p class="detail-label">${ui.period}</p><p>${project.period}</p><p class="detail-label">${ui.funding}</p><p>${project.funding}</p></aside>
+        <aside class="project-aside"><a class="text-link" href="${localizedPath('projects/')}"><span aria-hidden="true">←</span> ${ui.allProjects}</a><p class="detail-label">${ui.status}</p><p>${project.status}</p><p class="detail-label">${ui.period}</p><p>${project.period}</p>${project.funding ? `<p class="detail-label">${ui.funding}</p><p>${project.funding}</p>` : ''}</aside>
         <div class="project-narrative prose"><h2>${ui.overview}</h2><p>${project.overview}</p><h2>${ui.challenge}</h2><p>${project.challenge}</p><h2>${ui.approach}</h2><p>${project.approach}</p><h2>${ui.outcomes}</h2><ul>${project.outcomes.map((outcome) => `<li>${outcome}</li>`).join('')}</ul></div>
       </section>`;
   }
 
   async function renderTeaching() {
     const teaching = await loadJson('assets/data/teaching.json');
-    document.querySelector('[data-teaching-statement]').textContent = teaching.statement;
-    document.querySelector('[data-courses]').innerHTML = teaching.activities.map((course) => `
-      <article class="course-row"><div><span class="course-code">${course.code}</span><span class="course-term">${course.term}</span></div><div><h3>${course.title}</h3><p>${course.description}</p></div></article>`).join('');
-    document.querySelector('[data-teaching-resources]').innerHTML = teaching.honors.map((item) => {
-      const content = `<h3>${item.title}</h3><p>${item.description}</p>${item.url ? `<span class="text-link">${ui.coursesLink}</span>` : ''}`;
-      return item.url ? `<a class="resource-card" href="${item.url}">${content}</a>` : `<article class="resource-card resource-placeholder">${content}</article>`;
+    document.querySelector('[data-courses]').innerHTML = teaching.courses.map((course) => {
+      const metadata = [course.credits, course.hours, course.category].filter(Boolean);
+      return `<li class="ip-item"><div><div class="ip-item-heading"><h4>${course.title}</h4></div><p class="ip-meta">${metadata.map((value) => `<span>${value}</span>`).join('')}</p></div></li>`;
     }).join('');
+
+    document.querySelector('[data-graduation-projects]').innerHTML = teaching.graduation_projects.map((group) => `
+      <section class="publication-group teaching-group">
+        <h3>${group.year}</h3>
+        <ol class="teaching-record-list">${group.items.map((item) => `
+          <li class="teaching-record">
+            <div class="teaching-record-heading"><h4>${item.title}</h4><span class="teaching-person">${item.student}</span></div>
+            <div class="teaching-honors"><span>${ui.undergraduate}</span>${item.honors?.map((honor) => `<span>${honor}</span>`).join('') || ''}</div>
+          </li>`).join('')}</ol>
+      </section>`).join('');
+
+    document.querySelector('[data-innovation-projects]').innerHTML = teaching.innovation_projects.map((group) => `
+      <section class="publication-group teaching-group">
+        <h3>${group.year}</h3>
+        <ol class="teaching-record-list">${group.items.map((item) => `
+          <li class="teaching-record">
+            <div class="teaching-record-heading"><h4>${item.title}</h4><span class="ip-status ${item.status === '已结题' || item.status === 'Completed' ? 'is-review' : 'is-granted'}">${item.status}</span></div>
+            <p class="ip-meta"><span>${item.level}</span><span class="teaching-advisor">${item.advisor}</span></p>
+          </li>`).join('')}</ol>
+      </section>`).join('');
+
+    const competitionAward = (award) => {
+      const isProvincial = /省|Provincial/i.test(award);
+      if (isChinese) return isProvincial ? award.replace('金奖（省奖）', '省级金奖') : `国家${award}`;
+      return isProvincial ? award : `National ${award}`;
+    };
+    const competitionRank = (award) => {
+      if (/一等奖|First Prize/i.test(award)) return 1;
+      if (/二等奖|Second Prize/i.test(award)) return 2;
+      if (/三等奖|Third Prize/i.test(award)) return 3;
+      if (/金奖|Gold Award/i.test(award)) return 4;
+      return 5;
+    };
+    document.querySelector('[data-competitions]').innerHTML = teaching.competitions.map((group) => `
+      <section class="publication-group teaching-group">
+        <h3>${group.year}</h3>
+        <ol class="teaching-record-list">${group.items.slice().sort((a, b) => competitionRank(a.award) - competitionRank(b.award) || b.date.localeCompare(a.date)).map((item) => `
+          <li class="teaching-record">
+            <div class="teaching-record-heading"><h4>${item.title}</h4><span class="ip-status is-granted">${competitionAward(item.award)}</span></div>
+            <p class="ip-authors">${item.students}</p>
+            <p class="ip-meta"><time>${item.date}</time><span>${item.organizer}</span><span class="teaching-advisor">${ui.firstAdvisor}</span></p>
+          </li>`).join('')}</ol>
+      </section>`).join('');
   }
 
   async function renderNews() {
     const news = await loadJson('assets/data/news.json');
     news.sort((a, b) => b.date.localeCompare(a.date));
     document.querySelector('[data-all-news]').innerHTML = news.map(newsItem).join('');
-  }
-
-  async function renderTeam() {
-    const team = await loadJson('assets/data/team.json');
-    document.querySelector('[data-team-intro]').textContent = team.intro;
-    document.querySelector('[data-team-groups]').innerHTML = team.groups.map((group) => `
-      <section class="team-group" aria-labelledby="team-${group.title.toLowerCase().replace(/\s+/g, '-')}">
-        <h2 id="team-${group.title.toLowerCase().replace(/\s+/g, '-')}">${group.title}</h2>
-        <div class="member-grid">${group.members.map((member) => `<article class="member-card"><div class="member-avatar" aria-hidden="true">${member.initials}</div><h3>${member.name}</h3><p class="member-role">${member.role}</p><p>${member.focus}</p></article>`).join('')}</div>
-      </section>`).join('');
-  }
-
-  async function renderCv() {
-    const cv = await loadJson('assets/data/cv.json');
-    document.querySelector('[data-cv-sections]').innerHTML = Object.entries(cv).map(([key, entries]) => `
-      <section class="cv-section" aria-labelledby="cv-${key}"><h2 id="cv-${key}">${ui.cvLabels[key]}</h2><div>${entries.map((item) => `<article class="cv-row"><p>${item.period}</p><div><h3>${item.title}</h3><p>${item.place}</p></div></article>`).join('')}</div></section>`).join('');
-
-    const button = document.querySelector('[data-cv-download]');
-    try {
-      const response = await fetch(assetUrl('assets/files/cv.pdf'), { method: 'HEAD', cache: 'no-store' });
-      if (response.ok) {
-        button.href = assetUrl('assets/files/cv.pdf');
-        button.className = 'button button-primary';
-        button.textContent = ui.cvDownload;
-        button.removeAttribute('aria-disabled');
-        button.removeAttribute('title');
-      }
-    } catch (_) { /* The disabled placeholder remains when no CV is present. */ }
   }
 
   function renderContact(profile) {
@@ -303,6 +367,7 @@
     email.textContent = profile.email;
     document.querySelector('[data-contact-links]').innerHTML = [
       profile.links.google_scholar ? `<a href="${profile.links.google_scholar}" ${externalAttrs}><span>Google Scholar</span><span aria-hidden="true">↗</span></a>` : '',
+      profile.links.researchgate ? `<a href="${profile.links.researchgate}" ${externalAttrs}><span>ResearchGate</span><span aria-hidden="true">↗</span></a>` : '',
       profile.links.orcid ? `<a href="${profile.links.orcid}" ${externalAttrs}><span>ORCID</span><span aria-hidden="true">↗</span></a>` : '',
       profile.links.github ? `<a href="${profile.links.github}" ${externalAttrs}><span>GitHub</span><span aria-hidden="true">↗</span></a>` : ''
     ].filter(Boolean).join('');
@@ -321,8 +386,6 @@
       if (page === 'project') await renderProjectDetail();
       if (page === 'teaching') await renderTeaching();
       if (page === 'news') await renderNews();
-      if (page === 'team') await renderTeam();
-      if (page === 'cv') await renderCv();
       if (page === 'contact') renderContact(profile);
       document.body.classList.add('is-ready');
     } catch (error) {

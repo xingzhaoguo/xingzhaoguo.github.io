@@ -1,13 +1,56 @@
 {
-  "statement": "My teaching and mentoring connect mechanical design, intelligent control, and clinical needs. I encourage students to turn rehabilitation challenges into testable engineering questions and working robotic prototypes.",
-  "activities": [
-    {"code": "10 students", "title": "Undergraduate Thesis Supervision", "term": "Zhengzhou University", "description": "Supervised ten undergraduate students in completing graduation theses and design projects; four were recognized as university-level outstanding theses."},
-    {"code": "Student team", "title": "Reconfigurable Upper-Limb Rehabilitation Robot", "term": "Design & prototyping", "description": "Guided an undergraduate team in developing a reconfigurable, multi-configuration upper-limb rehabilitation robot."},
-    {"code": "Student team", "title": "Spinal Assist Exoskeleton", "term": "Design & prototyping", "description": "Guided a student team in developing a spinal assist exoskeleton with a focus on variable stiffness and wearable compatibility."}
+  "courses": [
+    {"title": "Engineering Drawing", "credits": "3 credits", "hours": "48 contact hours", "category": "Required"},
+    {"title": "CNC Technology", "credits": "1.5 credits", "hours": "24 contact hours", "category": "Required"},
+    {"title": "Robotics Technology", "credits": "1.5 credits", "hours": "24 contact hours", "category": "Restricted elective"},
+    {"title": "CNC Technology Course Design", "credits": "1 credit", "hours": "24 contact hours", "category": "Required"}
   ],
-  "honors": [
-    {"title": "RoboCup China Open", "description": "National Second Prize · RoboCup Division", "url": ""},
-    {"title": "iCAN Innovation and Entrepreneurship Competition", "description": "National Second Prize", "url": ""},
-    {"title": "Zhengzhou University Student Entrepreneurship Competition", "description": "Gold Award · 13th edition", "url": ""}
+  "graduation_projects": [
+    {"year": "Class of 2026", "items": [
+      {"student": "Zixuan Xia", "title": "Wearable-Sensor-Based Recognition and Analysis of Lower-Limb Movement Behaviors", "honors": ["Outstanding Undergraduate Thesis (Design), Zhengzhou University", "Excellence Award, AI+ Undergraduate Thesis Challenge Project"]},
+      {"student": "Yan Fang", "title": "Generalization Performance of Cross-Subject Trunk Motion Intention Recognition Models", "honors": ["Outstanding Undergraduate Thesis (Design), Zhengzhou University"]},
+      {"student": "Xinxin Yuan", "title": "Reinforcement-Learning-Based Legged Locomotion Control for Lunar-Surface Exploration", "honors": ["Outstanding Undergraduate Thesis (Design), Zhengzhou University"]},
+      {"student": "Fei Sun", "title": "Design and Analysis of a Multi-DOF Wearable Lumbar Rehabilitation Robot"},
+      {"student": "Linxiong Pan", "title": "Design and Analysis of a Rigid–Flexible Coupled Hand Rehabilitation Robot"},
+      {"student": "Chenyang Li", "title": "Femtosecond-Laser Low-Damage Machining of Ceramic-Matrix Composites"},
+      {"student": "Yiyang Lai", "title": "Design and Performance Study of a Variable-Stiffness Multi-DOF Spinal Rehabilitation Robot"},
+      {"student": "Fanqi Gao", "title": "Design and Grasping Performance of a Cable–Pneumatic Hybrid Multimodal Soft Robotic Hand"}
+    ]},
+    {"year": "Class of 2025", "items": [
+      {"student": "Chenlin Wang", "title": "Trunk Motion Intention Recognition Using Flexible Pressure Sensors", "honors": ["Outstanding Undergraduate Thesis (Design), Zhengzhou University"]},
+      {"student": "Tongwang Yang", "title": "Design and Simulation of a Multi-DOF Trunk Balance Training Robot"}
+    ]}
+  ],
+  "innovation_projects": [
+    {"year": "2026", "items": [
+      {"title": "Variable-Stiffness Hand Rehabilitation Robot Integrating Brain–Computer Interfaces", "level": "National College Student Innovation and Entrepreneurship Training Program", "advisor": "Second Advisor", "status": "Ongoing"},
+      {"title": "Jingzheng Jitong: A Pioneer in Cervical Function Rehabilitation and Assessment", "level": "Provincial College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Ongoing"},
+      {"title": "Qinggu Lixing: Modular Reconfigurable Active-Assist Exoskeleton Robot", "level": "University-Level College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Ongoing"},
+      {"title": "Reconfigurable Multimodal Intelligent Home Rehabilitation Robot", "level": "University-Level College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Ongoing"},
+      {"title": "Jili Jinqu: A Semi-Active Variable-Stiffness Spinal Exoskeleton", "level": "University-Level College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Ongoing"},
+      {"title": "Intelligent Adolescent Sitting-Posture Monitoring Cushion Based on Adaptive Transfer Learning", "level": "University-Level College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Ongoing"}
+    ]},
+    {"year": "2025", "items": [
+      {"title": "Biomimetic Active Variable-Stiffness Exoskeleton System for Trunk Rehabilitation", "level": "Zhengzhou University College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Completed"},
+      {"title": "Modular Multi-DOF Variable-Stiffness Upper-Limb Rehabilitation Robot", "level": "University-Level College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Completed"},
+      {"title": "Multi-DOF Robot for Cervical Function Rehabilitation and Assessment", "level": "University-Level College Student Innovation and Entrepreneurship Training Program", "advisor": "First Advisor", "status": "Completed"}
+    ]}
+  ],
+  "competitions": [
+    {"year": "2026", "items": [
+      {"date": "2026.08.27", "title": "2026 China Undergraduate Mechanical Engineering Innovation and Creativity Competition - China Undergraduate Intelligent Equipment Innovation Design Competition", "students": "Duan Aoyu, Qin Yingze, Tang Chenhao", "award": "First Prize", "organizer": "Chinese Mechanical Engineering Society"},
+      {"date": "2026.08.27", "title": "2026 China Undergraduate Mechanical Engineering Innovation and Creativity Competition - China Undergraduate Intelligent Equipment Innovation Design Competition", "students": "Tang Chenhao, Yuan Dihao, Qu Chuangda", "award": "Second Prize", "organizer": "Chinese Mechanical Engineering Society"},
+      {"date": "2026.08.23", "title": "2026 China Undergraduate Mechanical Engineering Innovation and Creativity Competition - Mingshi Cup Micro/Nano Sensing Technology and Intelligent Applications Competition", "students": "Qin Yingze, Duan Aoyu, Li Yuhang, Zhou Jiazhi, Tie Yang", "award": "First Prize", "organizer": "Chinese Mechanical Engineering Society"},
+      {"date": "2026.08.23", "title": "2026 China Undergraduate Mechanical Engineering Innovation and Creativity Competition - Mingshi Cup Micro/Nano Sensing Technology and Intelligent Applications Competition", "students": "Zhang Haoyang, Tang Chenhao, Li Yixuan, Yuan Dihao, Li Zhougui", "award": "Second Prize", "organizer": "Chinese Mechanical Engineering Society"},
+      {"date": "2026.08.04", "title": "19th Advanced Robotics and Simulation Technology Competition", "students": "Tang Chenhao, Zhang Haoyang, Qu Chuangda, Li Yixuan", "award": "Second Prize", "organizer": "China Simulation Federation"},
+      {"date": "2026.08", "title": "2026 China Undergraduate Mechanical Engineering Innovation and Creativity Competition - China Undergraduate Intelligent Equipment Innovation Design Competition", "students": "Yu Mengna, Zhang Yuwei, Sun Ximeng", "award": "First Prize", "organizer": "Chinese Mechanical Engineering Society"},
+      {"date": "2026.08", "title": "19th Advanced Robotics and Simulation Technology Competition", "students": "Yu Mengna, Zhang Yuwei, Sun Ximeng, Zhao Xiaoniu", "award": "First Prize", "organizer": "China Simulation Federation"},
+      {"date": "2026.07", "title": "18th Anniversary Elite League of the National 3D Digital Innovation Design Competition", "students": "Duan Aoyu, Qin Yingze, Li Yuhang, Zhou Jiazhi, Wang Yunfei", "award": "Second Prize", "organizer": "National Manufacturing Informatization Training Center"},
+      {"date": "2026.05.13", "title": "2026 China Robot Competition and RoboCup China Open — RoboCup Division", "students": "Qin Yingze, Duan Aoyu, Tang Chenhao, Yang Qianyi, Cai Chi", "award": "Second Prize", "organizer": "Chinese Association of Automation"},
+      {"date": "2026.05", "title": "2026 Challenge Cup Henan Provincial College Student Entrepreneurship Competition", "students": "Qin Yingze, Duan Aoyu, Zhou Jiazhi, Li Yuhang, Yang Qianyi, Feng Zijin, Tang Chenhao, Tie Yang, Cai Chi, Shen Zhaojie, Ju Jingyan", "award": "Gold Award (Provincial)", "organizer": "Henan Provincial Organizing Committee"}
+    ]},
+    {"year": "2025", "items": [
+      {"date": "2025.11.30", "title": "19th iCAN College Student Innovation and Entrepreneurship Competition", "students": "Qin Yingze, Chen Yerong, Duan Aoyu, Chang Shusheng, Zheng Yixuan", "award": "Second Prize", "organizer": "Chinese Association of Inventions"}
+    ]}
   ]
 }

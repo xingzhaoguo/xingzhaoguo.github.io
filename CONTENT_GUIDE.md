@@ -6,7 +6,7 @@
 
 | 内容类型 | 文件位置 | 主要用途 |
 | --- | --- | --- |
-| 中文内容数据 | `assets/data/zh/*.json` | 中文首页、研究、论文、项目、教学、团队、动态和履历 |
+| 中文内容数据 | `assets/data/zh/*.json` | 中文首页、研究、论文、项目、教学和动态 |
 | 英文内容数据 | `assets/data/*.json` | `/en/` 下对应的英文内容 |
 | 页面固定文案 | 根目录各页面及 `en/` 中的 HTML | 页面标题、栏目介绍、SEO 描述和静态按钮文字 |
 | 全站公共逻辑 | `assets/js/site.js` | 导航栏、页脚、语言切换及数据渲染 |
@@ -38,12 +38,12 @@
 | 首页研究方向 | 同上 | 同上 | `research_interests`，数组中的每一项是一张方向卡片 |
 | 首页教育背景与工作经历 | `assets/data/zh/cv.json` | `assets/data/cv.json` | `education` 和 `appointments` |
 | Research 页面 | `assets/data/zh/research.json` | `assets/data/research.json` | 每项包含 `title`、`summary`、`questions`、`methods` |
-| 论文列表 | `assets/data/zh/publications.json` | `assets/data/publications.json` | `title`、`authors`、`venue`、`year`、`pdf`、`doi` |
+| 论文列表 | `assets/data/zh/publications.json` | `assets/data/publications.json` | `title`、`authors`、`venue`、`year`、`doi` |
+| 专利软著汇总 | `assets/data/zh/intellectual-property.json` | `assets/data/intellectual-property.json` | `category`、`count`、`description` |
 | 项目列表与详情正文 | `assets/data/zh/projects.json` | `assets/data/projects.json` | `summary`、`overview`、`challenge`、`approach`、`outcomes` |
 | 教学与学生指导 | `assets/data/zh/teaching.json` | `assets/data/teaching.json` | `statement`、`activities`、`honors` |
 | 学术动态 | `assets/data/zh/news.json` | `assets/data/news.json` | `date`、`title`、`url` |
-| 团队成员 | `assets/data/zh/team.json` | `assets/data/team.json` | `intro`、`groups`、`members` |
-| CV 页面全部条目 | `assets/data/zh/cv.json` | `assets/data/cv.json` | 工作、教育、项目、成果、荣誉与学术服务 |
+| 首页教育背景与工作经历 | `assets/data/zh/cv.json` | `assets/data/cv.json` | `education` 和 `appointments` |
 | Contact 页面个人信息 | `assets/data/zh/profile.json` | `assets/data/profile.json` | 自动复用姓名、身份、单位、地址、邮箱和平台链接 |
 
 首页代表内容的筛选逻辑：
@@ -66,7 +66,7 @@
   "location": "中国 · 河南郑州",
   "biography": "个人学术简介……",
   "email": "邮箱地址",
-  "photo": "assets/images/profile/xingzhao-guo.webp"
+  "photo": "assets/images/profile/xingzhao-guo-2026.jpg"
 }
 ```
 
@@ -75,8 +75,9 @@
 ```json
 "links": {
   "google_scholar": "",
+  "researchgate": "https://www.researchgate.net/profile/Xingzhao-Guo-2/research",
   "orcid": "",
-  "github": "https://github.com/xingzhaoguo"
+  "github": ""
 }
 ```
 
@@ -120,16 +121,14 @@ Research 页的详细说明在 `research.json` 中修改：
   "year": 2026,
   "type": "Journal Article",
   "selected": true,
-  "pdf": "assets/files/paper-name.pdf",
   "doi": "https://doi.org/..."
 }
 ```
 
 - `selected: true`：在首页显示。
-- `selected: false`：只在 Publications 页面显示。
-- 没有公开 PDF 时将 `pdf` 设为 `""`。
-- PDF 文件放在 `assets/files/`，路径区分大小写。
+- `selected: false`：只在“研究成果 / Research Outputs”页面显示。
 - DOI 必须填写完整链接，例如 `https://doi.org/10.xxxx/xxxxx`。
+- 尚未分配 DOI 时将 `doi` 设为 `""`，页面会显示“DOI 待更新”。
 
 论文标题、作者和期刊名称通常可以在中英文数据中保持原始英文；类型及补充说明可以分别本地化。
 
@@ -182,18 +181,14 @@ Research 页的详细说明在 `research.json` 中修改：
 - `display_date` 是页面显示文字，可按需填写。
 - 没有新闻链接时将 `url` 留空。
 
-## 九、修改教育、工作经历和 CV
+## 九、修改教育和工作经历
 
-`cv.json` 包含以下栏目：
+`cv.json` 中与首页相关的栏目：
 
 | 字段 | 页面含义 |
 | --- | --- |
-| `appointments` | 工作经历，同时显示在首页 |
-| `education` | 教育背景，同时显示在首页 |
-| `funding` | 主持或参与的科研项目 |
-| `outputs` | 论文、专利、软件著作权等科研成果 |
-| `honors` | 获奖与学生指导成果 |
-| `service` | 学术兼职与审稿服务 |
+| `appointments` | 首页工作经历 |
+| `education` | 首页教育背景 |
 
 每条记录统一使用：
 
@@ -205,21 +200,13 @@ Research 页的详细说明在 `research.json` 中修改：
 }
 ```
 
-公开版 PDF 简历放在 `assets/files/cv.pdf`。文件存在时，中文和英文 CV 页面会自动启用下载按钮。
-
-## 十、修改教学和团队内容
+## 十、修改教学内容
 
 教学内容在 `teaching.json`：
 
 - `statement`：Teaching 页顶部的教学理念。
 - `activities`：毕业设计、科研训练和学生项目。
 - `honors`：学生竞赛及优秀毕业论文等成果。
-
-团队内容在 `team.json`：
-
-- `intro`：Team 页顶部介绍。
-- `groups`：研究生、本科生、合作人员等分组。
-- `members`：姓名、身份、研究方向和姓名缩写。
 
 ## 十一、哪些文字需要修改 HTML
 
@@ -240,8 +227,6 @@ projects/index.html
 teaching/index.html
 news/index.html
 contact/index.html
-team/index.html
-cv/index.html
 ```
 
 英文对应页面位于 `en/` 下。修改页面顶部介绍时，应同步修改相应中英文 HTML。

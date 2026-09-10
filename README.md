@@ -2,22 +2,20 @@
 
 这是一个面向高校教师、科研人员和研究团队的轻量双语个人学术主页，已经按照 `xingzhaoguo.github.io` 用户站点配置。它不依赖前端框架、数据库或第三方 CDN；GitHub Pages 会直接发布仓库中的静态文件。中文位于站点根目录并作为默认语言，英文完整版本位于 `/en/`，导航栏右侧的 `中文 / EN` 会切换到当前页面对应的语言版本。
 
-如需修改姓名、个人简介、研究方向、论文、项目、动态、教学、团队或 CV，请先阅读 [`CONTENT_GUIDE.md`](CONTENT_GUIDE.md)。该指南按网站区域列出了中英文文件位置、字段含义和推荐修改流程。
+如需修改姓名、个人简介、研究方向、论文、项目、动态或教学内容，请先阅读 [`CONTENT_GUIDE.md`](CONTENT_GUIDE.md)。该指南按网站区域列出了中英文文件位置、字段含义和推荐修改流程。
 
 ## 已包含的页面
 
 - 首页：个人资料、个人简介、教育背景、工作经历、研究方向、代表项目、代表论文、近期动态
 - `Research`：三个主要研究方向
-- `Publications`：按年份倒序排列论文
-- `Projects`：项目卡片和三个独立项目详情页
+- `研究成果 / Research Outputs`：按年份倒序排列学术论文，并汇总专利与软件著作权
+- `科研工作 / Research Work`：代表性研究卡片、研究项目列表和独立项目详情页
 - `Teaching`：教学理念、课程、资源与学生机会
-- `Team`：研究生、本科生和合作人员
 - `News`：学术动态归档
-- `CV`：学术履历和 PDF CV 下载入口
 - `Contact`：邮箱、单位和学术平台链接
 - 自定义 `404` 页面、站点地图和社交分享图片
 
-中文主导航为：`首页 | 研究方向 | 论文成果 | 科研项目 | 教学指导 | 学术动态 | 联系方式`；英文主导航保留为：`Home | Research | Publications | Projects | Teaching | News | Contact`。`团队 / Team` 和 `个人履历 / CV` 可从页脚进入。
+中文主导航为：`首页 | 科研工作 | 研究成果 | 教学指导 | 学术动态 | 联系方式`；英文主导航为：`Home | Research Work | Research Outputs | Teaching | News | Contact`。
 
 ## 文件结构
 
@@ -29,9 +27,7 @@
 ├── publications/
 ├── projects/                 # 项目列表与独立详情页
 ├── teaching/
-├── team/
 ├── news/
-├── cv/
 ├── contact/
 ├── assets/
 │   ├── css/main.css          # 全站视觉规范和响应式样式
@@ -41,7 +37,7 @@
 │   ├── images/
 │   │   ├── profile/
 │   │   └── projects/
-│   └── files/                # 放置 cv.pdf
+│   └── files/                # 其他公开下载文件（如有）
 ├── scripts/validate-site.mjs # 本地完整性检查
 ├── .nojekyll                 # 让 GitHub Pages 原样发布静态文件
 └── _config.yml               # 站点基础元数据
@@ -91,14 +87,15 @@
   "year": 2026,
   "type": "Journal Article",
   "selected": true,
-  "pdf": "assets/files/paper-name.pdf",
   "doi": "https://doi.org/..."
 }
 ```
 
 - `selected: true` 的论文会出现在首页。
 - Publications 页面会自动按 `year` 从新到旧排序。
-- 没有 PDF 时把 `pdf` 留空，页面会显示不可点击的 PDF 占位标签，不会产生坏链接。
+- 论文条目仅提供 DOI 链接；尚未分配 DOI 时将 `doi` 留空，页面会显示“DOI 待更新”。
+
+专利和软件著作权汇总分别编辑 `assets/data/zh/intellectual-property.json` 与 `assets/data/intellectual-property.json`。
 
 ## 添加或修改项目
 
@@ -128,21 +125,10 @@
 
 首页显示最新 5 条，News 页面自动按日期倒序显示全部内容。没有外部链接时把 `url` 留空。
 
-## 修改课程、团队和履历
+## 修改课程、教育和工作经历
 
 - 教学内容：中文 `assets/data/zh/teaching.json`，英文 `assets/data/teaching.json`
-- 团队成员：中文 `assets/data/zh/team.json`，英文 `assets/data/team.json`
-- CV 页面条目：中文 `assets/data/zh/cv.json`，英文 `assets/data/cv.json`
-
-## 添加 PDF CV
-
-把公开版 CV 命名为 `cv.pdf`，放到：
-
-```text
-assets/files/cv.pdf
-```
-
-CV 页面会自动检测该文件并启用 `Download PDF CV` 按钮；文件不存在时按钮保持禁用，因此初始主题不会包含坏链接。
+- 首页教育背景和工作经历：中文 `assets/data/zh/cv.json`，英文 `assets/data/cv.json`，分别修改 `education` 和 `appointments`
 
 ## 本地预览
 
@@ -185,8 +171,7 @@ https://xingzhaoguo.github.io/
 
 - 同步检查中英文姓名、邮箱、单位和学术平台链接
 - 替换头像和项目占位图
-- 移除示例论文 DOI 或换成真实链接
-- 添加公开版 `assets/files/cv.pdf`
+- 核对论文 DOI，移除示例链接并换成真实链接
 - 更新页面的 title、description 和社交分享文案
 - 运行 `node scripts/validate-site.mjs`
 - 手机和电脑浏览器各检查一次导航、文字长度和图片裁切

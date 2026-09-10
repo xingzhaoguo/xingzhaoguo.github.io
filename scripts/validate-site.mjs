@@ -49,28 +49,28 @@ function resolveLocalReference(htmlFile, reference) {
 [
   '.nojekyll', 'index.html', '404.html', 'assets/css/main.css', 'assets/js/site.js',
   'research/index.html', 'publications/index.html', 'projects/index.html',
-  'teaching/index.html', 'team/index.html', 'news/index.html', 'cv/index.html',
+  'teaching/index.html', 'news/index.html',
   'contact/index.html', 'assets/images/og-xingzhao-guo.png',
   'en/index.html', 'en/research/index.html', 'en/publications/index.html',
-  'en/projects/index.html', 'en/teaching/index.html', 'en/team/index.html',
-  'en/news/index.html', 'en/cv/index.html', 'en/contact/index.html'
+  'en/projects/index.html', 'en/teaching/index.html',
+  'en/news/index.html', 'en/contact/index.html'
 ].forEach(requirePath);
 
 const profile = readJson('assets/data/profile.json');
 const projects = readJson('assets/data/projects.json');
 const publications = readJson('assets/data/publications.json');
+readJson('assets/data/intellectual-property.json');
 const news = readJson('assets/data/news.json');
 readJson('assets/data/research.json');
 readJson('assets/data/teaching.json');
-readJson('assets/data/team.json');
 readJson('assets/data/cv.json');
 const zhProfile = readJson('assets/data/zh/profile.json');
 const zhProjects = readJson('assets/data/zh/projects.json');
-readJson('assets/data/zh/publications.json');
+const zhPublications = readJson('assets/data/zh/publications.json');
+readJson('assets/data/zh/intellectual-property.json');
 readJson('assets/data/zh/news.json');
 readJson('assets/data/zh/research.json');
 readJson('assets/data/zh/teaching.json');
-readJson('assets/data/zh/team.json');
 readJson('assets/data/zh/cv.json');
 
 if (profile) requirePath(profile.photo);
@@ -87,14 +87,21 @@ if (projects) {
 if (projects && zhProjects && projects.map(({ id }) => id).join('|') !== zhProjects.map(({ id }) => id).join('|')) {
   errors.push('Chinese and English project IDs should match and use the same order.');
 }
-if (publications) {
-  for (const item of publications) if (item.pdf) requirePath(item.pdf);
-  for (let index = 1; index < publications.length; index += 1) {
-    if (publications[index].year > publications[index - 1].year) {
+for (const publicationSet of [publications, zhPublications]) {
+  if (!publicationSet) continue;
+  for (const item of publicationSet) {
+    if ('pdf' in item) errors.push(`Publication data must not contain a PDF field: ${item.title}`);
+    if (item.doi && !/^https:\/\/doi\.org\/10\./i.test(item.doi)) errors.push(`Invalid DOI URL: ${item.title}`);
+  }
+  for (let index = 1; index < publicationSet.length; index += 1) {
+    if (publicationSet[index].year > publicationSet[index - 1].year) {
       errors.push('publications.json should be stored in reverse chronological order.');
       break;
     }
   }
+}
+if (publications && zhPublications && publications.length !== zhPublications.length) {
+  errors.push('Chinese and English publication counts should match.');
 }
 if (news) {
   for (let index = 1; index < news.length; index += 1) {
