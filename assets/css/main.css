@@ -114,11 +114,13 @@ html:lang(zh-CN) .profile-biography { text-align: justify; text-justify: inter-i
 .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: 0 1px 0 rgba(22, 43, 35, 0.02); transition: transform 180ms ease, box-shadow 180ms ease; }
 .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.project-card-static:hover { transform: none; box-shadow: 0 1px 0 rgba(22, 43, 35, 0.02); }
 .project-image-link { display: block; overflow: hidden; }
 .project-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 260ms ease; }
 .project-card img.project-image-contain { box-sizing: border-box; object-fit: contain; padding: 0.9rem; background: #fff; }
 .project-card img.project-image-left { object-position: 30% center; }
 .project-card:hover img { transform: scale(1.015); }
+.project-card-static:hover img { transform: none; }
 .project-card-body { padding: 1.05rem 1.1rem 1.2rem; }
 .project-meta { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.9rem; color: var(--ink-soft); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; }
 .project-card h3 { margin-bottom: 0.55rem; font-family: var(--font-serif); font-size: 1.16rem; line-height: 1.45; }

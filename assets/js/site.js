@@ -138,8 +138,8 @@
     ].filter(Boolean).join('');
   }
 
-  function projectCard(project) {
-    const projectUrl = project.has_detail === false ? '' : localizedPath(`projects/${project.id}/`);
+  function projectCard(project, linkEnabled = true) {
+    const projectUrl = linkEnabled && project.has_detail !== false ? localizedPath(`projects/${project.id}/`) : '';
     const imageClasses = [
       project.image_fit === 'contain' ? 'project-image-contain' : '',
       project.image_position === 'left' ? 'project-image-left' : ''
@@ -151,7 +151,7 @@
     const title = projectUrl ? `<a href="${projectUrl}">${project.title}</a>` : project.title;
     const action = '';
     return `
-      <article class="project-card reveal">
+      <article class="project-card${linkEnabled ? '' : ' project-card-static'} reveal">
         ${image}
         <div class="project-card-body">
           <div class="project-meta"><span>${project.period}</span><span>${project.status}</span></div>
@@ -228,7 +228,7 @@
           <h3>${interest}</h3>
         </article>`).join('');
     }
-    document.querySelector('[data-featured-projects]').innerHTML = projects.filter((item) => item.featured).slice(0, 3).map(projectCard).join('');
+    document.querySelector('[data-featured-projects]').innerHTML = projects.filter((item) => item.featured).slice(0, 3).map((item) => projectCard(item, false)).join('');
     document.querySelector('[data-featured-publications]').innerHTML = publications.filter((item) => item.selected).slice(0, 4).map(publicationItem).join('');
     document.querySelector('[data-recent-news]').innerHTML = news.slice(0, 5).map(newsItem).join('');
   }
