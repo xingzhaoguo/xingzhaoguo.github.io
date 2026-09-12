@@ -286,7 +286,7 @@
     const researchProjects = projects
       .filter((project) => !project.featured)
       .sort((a, b) => (a.display_order ?? Number.MAX_SAFE_INTEGER) - (b.display_order ?? Number.MAX_SAFE_INTEGER));
-    document.querySelector('[data-representative-projects]').innerHTML = representativeProjects.map(projectCard).join('');
+    document.querySelector('[data-representative-projects]').innerHTML = representativeProjects.map((project) => projectCard(project, false)).join('');
     document.querySelector('[data-research-projects]').innerHTML = researchProjects.map((project) => `
       <li class="ip-item">
         <div>
